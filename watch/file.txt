@@ -1,0 +1,10 @@
+hello.
+as you can see my cursor is following into the html page.
+math:
+\(1+1+1+1\)
+cooler math:
+`x = (-b +- sqrt(b^sr - 4 ac))/(2a)` (is the quadratic formula)
+
+the performance is not very good as you can see, but that can be solved by converting all the python scripts to C, which hasn't been done yet.
+
+however, this is still awesome.

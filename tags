@@ -1,0 +1,118 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARGS	smdv/thissmdv.py	/^ARGS = ""  # the smdv command line arguments$/;"	v
+BACKMESSAGES	smdv/thissmdv.py	/^BACKMESSAGES = collections.deque()  # for communication between js and py$/;"	v
+EVENT_LOOP	smdv/thissmdv.py	/^EVENT_LOOP = asyncio.get_event_loop()$/;"	v
+EventHandler	watch/watch.py	/^class EventHandler(pyinotify.ProcessEvent):$/;"	c
+FORWARDMESSAGES	smdv/thissmdv.py	/^FORWARDMESSAGES = collections.deque()  # for communication between js and py$/;"	v
+GetExecPath	imd.vim	/^function! s:GetExecPath(...) abort$/;"	f
+InstantMarkdownDPath	imd.vim	/^command! InstantMarkdownDPath call s:instant_markdown_d_path()$/;"	c
+InstantMarkdownPreview	imd.vim	/^command! -buffer InstantMarkdownPreview call s:previewMarkdown()$/;"	c
+InstantMarkdownStop	imd.vim	/^command! -buffer InstantMarkdownStop call s:cleanUp()$/;"	c
+JSCLIENTS	smdv/thissmdv.py	/^JSCLIENTS = set()  # jsclients wait for an update from the pyclient$/;"	v
+MESSAGE	smdv/thissmdv.py	/^MESSAGE = {}$/;"	v
+PYCLIENTS	smdv/thissmdv.py	/^PYCLIENTS = set()  # pyclients update the html body of the jsclient$/;"	v
+ResolveExecutable	imd.vim	/^function! s:ResolveExecutable(...) abort$/;"	f
+SMDV_DEFAULT_ARGS	smdv/thissmdv.py	/^SMDV_DEFAULT_ARGS = os.environ.get("SMDV_DEFAULT_ARGS", "")  # default smdv arguments$/;"	v
+TraverseAncestorDirSearch	imd.vim	/^function! s:TraverseAncestorDirSearch(rootDir) abort$/;"	f
+WEBSOCKETS_SERVER	smdv/thissmdv.py	/^WEBSOCKETS_SERVER = None  # websockets server$/;"	v
+__author__	smdv/thissmdv.py	/^__author__ = "Floris Laporte"$/;"	v
+__version__	smdv/thissmdv.py	/^__version__ = "0.1.1"$/;"	v
+api_echo	old/flask/server.py	/^def api_echo():$/;"	f
+app	old/flask/server.py	/^app = Flask(__name__)$/;"	v
+ask_num_js_clients	smdv/thissmdv.py	/^async def ask_num_js_clients():$/;"	f
+author	smdv/banishedsetup.py	/^    author=smdv.__author__,$/;"	v
+author_email	smdv/banishedsetup.py	/^    author_email="floris.laporte@gmail.com",$/;"	v
+bufGetLines	imd.vim	/^function! s:bufGetLines(bufnr)"{{{$/;"	f
+change_current_working_directory	smdv/thissmdv.py	/^def change_current_working_directory(path: str) -> str:$/;"	f
+classifiers	smdv/banishedsetup.py	/^    classifiers=[$/;"	v
+cleanUp	imd.vim	/^fu! s:cleanUp()$/;"	f
+create_app	smdv/thissmdv.py	/^def create_app() -> flask.Flask:$/;"	f
+curs	watch/inscursor.py	/^curs = int(std[0])-1$/;"	v
+description	smdv/banishedsetup.py	/^    description=smdv.__doc__,$/;"	v
+dir2body	smdv/thissmdv.py	/^def dir2body(cwd: str) -> str:$/;"	f
+edit_in_neovim	smdv/thissmdv.py	/^def edit_in_neovim(filename: str = ""):$/;"	f
+encode	smdv/thissmdv.py	/^def encode(message: dict) -> dict:$/;"	f
+g:instant_markdown_allow_external_content	imd.vim	/^    let g:instant_markdown_allow_external_content = 1$/;"	v
+g:instant_markdown_allow_unsafe_content	imd.vim	/^    let g:instant_markdown_allow_unsafe_content = 0$/;"	v
+g:instant_markdown_autoscroll	imd.vim	/^    let g:instant_markdown_autoscroll = 1$/;"	v
+g:instant_markdown_autostart	imd.vim	/^    let g:instant_markdown_autostart = 1$/;"	v
+g:instant_markdown_logfile	imd.vim	/^    let g:instant_markdown_logfile = (has('win32') || has('win64') ? 'NUL' : '\/dev\/null')$/;"	v
+g:instant_markdown_mathjax	imd.vim	/^    let g:instant_markdown_mathjax = 0$/;"	v
+g:instant_markdown_mermaid	imd.vim	/^    let g:instant_markdown_mermaid = 0$/;"	v
+g:instant_markdown_open_to_the_world	imd.vim	/^    let g:instant_markdown_open_to_the_world = 0$/;"	v
+g:instant_markdown_port	imd.vim	/^    let g:instant_markdown_port = 8090$/;"	v
+g:instant_markdown_python	imd.vim	/^    let g:instant_markdown_python = 0$/;"	v
+g:instant_markdown_slow	imd.vim	/^    let g:instant_markdown_slow = 0$/;"	v
+handle_message	smdv/thissmdv.py	/^async def handle_message(client: websockets.WebSocketServerProtocol, message: str):$/;"	f
+handler	watch/watch.py	/^handler = EventHandler()$/;"	v
+hello_world	old/flask/server.py	/^def hello_world():$/;"	f
+http	old/node/test.js	/^var http = require('http');$/;"	v
+index	smdv/thissmdv.py	/^    def index(path: str = "") -> str:$/;"	f	function:create_app
+initDict	imd.vim	/^function! s:initDict()$/;"	f
+install_requires	smdv/banishedsetup.py	/^    install_requires=["flask", "websockets"],$/;"	v
+instant	imd.vim	/^    aug instant-markdown$/;"	a
+instant_markdown_d_path	imd.vim	/^function! s:instant_markdown_d_path()$/;"	f
+ipynb2body	smdv/thissmdv.py	/^def ipynb2body(content: str) -> str:$/;"	f
+is_binary_file	smdv/thissmdv.py	/^def is_binary_file(filename: str) -> bool:$/;"	f
+killDaemon	imd.vim	/^function! s:killDaemon()"{{{$/;"	f
+kill_websocket_server	smdv/thissmdv.py	/^def kill_websocket_server() -> int:$/;"	f
+long_description	smdv/banishedsetup.py	/^    long_description = f.read()$/;"	v
+long_description	smdv/banishedsetup.py	/^    long_description=long_description,$/;"	v
+long_description_content_type	smdv/banishedsetup.py	/^    long_description_content_type="text\/markdown",$/;"	v
+main	smdv/thissmdv.py	/^def main() -> int:$/;"	f
+mask	watch/watch.py	/^mask = pyinotify.IN_DELETE | pyinotify.IN_CREATE | pyinotify.IN_MODIFY  # watched events$/;"	v
+md2body	smdv/thissmdv.py	/^def md2body(content: str = "") -> str:$/;"	f
+myBufNr	imd.vim	/^fu! s:myBufNr()$/;"	f
+name	smdv/banishedsetup.py	/^    name="smdv",$/;"	v
+notifier	watch/watch.py	/^notifier = pyinotify.Notifier(wm, handler)$/;"	v
+number_of_connected_jsclients	smdv/thissmdv.py	/^def number_of_connected_jsclients():$/;"	f
+open_browser	smdv/thissmdv.py	/^def open_browser():$/;"	f
+parse_args	smdv/thissmdv.py	/^def parse_args(args: tuple, **kwargs) -> argparse.Namespace:$/;"	f
+popBuffer	imd.vim	/^function! s:popBuffer(bufnr)$/;"	f
+popMarkdown	imd.vim	/^fu! s:popMarkdown()$/;"	f
+previewMarkdown	imd.vim	/^fu! s:previewMarkdown()$/;"	f
+print_message	smdv/thissmdv.py	/^def print_message(message: dict, **kwargs):$/;"	f
+process_IN_CREATE	watch/watch.py	/^  def process_IN_CREATE(self, event):$/;"	m	class:EventHandler
+process_IN_DELETE	watch/watch.py	/^  def process_IN_DELETE(self, event):$/;"	m	class:EventHandler
+process_IN_MODIFY	watch/watch.py	/^  def process_IN_MODIFY(self, event):$/;"	m	class:EventHandler
+pushBuffer	imd.vim	/^function! s:pushBuffer(bufnr)$/;"	f
+pushMarkdown	imd.vim	/^fu! s:pushMarkdown()$/;"	f
+py_modules	smdv/banishedsetup.py	/^    py_modules=["smdv"],$/;"	v
+refreshView	imd.vim	/^function! s:refreshView()"{{{$/;"	f
+register_client	smdv/thissmdv.py	/^async def register_client(client: websockets.WebSocketServerProtocol):$/;"	f
+request_server_status	smdv/thissmdv.py	/^def request_server_status(server: str = "flask") -> str:$/;"	f
+rest	watch/inscursor.py	/^rest = ''.join(std[1:])$/;"	v
+run_flask_server	smdv/thissmdv.py	/^def run_flask_server():$/;"	f
+run_server_in_subprocess	smdv/thissmdv.py	/^def run_server_in_subprocess(server="flask"):$/;"	f
+run_websocket_server	smdv/thissmdv.py	/^def run_websocket_server():$/;"	f
+s:ROOT_DIR	imd.vim	/^let s:ROOT_DIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')"{{{$/;"	v
+s:shell_redirect	imd.vim	/^let s:shell_redirect = ' 1>> '. g:instant_markdown_logfile . ' 2>&1 '"}}}$/;"	v
+send_as_pyclient	smdv/thissmdv.py	/^def send_as_pyclient(message: dict):$/;"	f
+send_as_pyclient_async	smdv/thissmdv.py	/^async def send_as_pyclient_async(message: dict):$/;"	f
+send_delete_request_to_server	smdv/thissmdv.py	/^def send_delete_request_to_server():$/;"	f
+send_message_from_stdin	smdv/thissmdv.py	/^def send_message_from_stdin():$/;"	f
+send_message_to_all_js_clients	smdv/thissmdv.py	/^async def send_message_to_all_js_clients():$/;"	f
+serve_client	smdv/thissmdv.py	/^async def serve_client(client: websockets.WebSocketServerProtocol, path: str):$/;"	f
+socket_in_use	smdv/thissmdv.py	/^def socket_in_use(address: str) -> bool:$/;"	f
+startDaemon	imd.vim	/^function! s:startDaemon(initialMDLines)"{{{$/;"	f
+std	watch/inscursor.py	/^std = list(stdin)$/;"	v
+stop_flask_server	smdv/thissmdv.py	/^    def stop_flask_server() -> int:$/;"	f	function:create_app
+system	imd.vim	/^function! s:system(cmd, stdin)"{{{$/;"	f
+systemasync	imd.vim	/^function! s:systemasync(cmd, stdinLines)"{{{$/;"	f
+temperedRefresh	imd.vim	/^fu! s:temperedRefresh()$/;"	f
+txt2body	smdv/thissmdv.py	/^def txt2body(content: str) -> str:$/;"	f
+unregister_client	smdv/thissmdv.py	/^async def unregister_client(client: websockets.WebSocketServerProtocol):$/;"	f
+update_filename	smdv/thissmdv.py	/^def update_filename():$/;"	f
+url	smdv/banishedsetup.py	/^    url="https:\/\/github.com\/flaport\/smdv",$/;"	v
+validate_message	smdv/thissmdv.py	/^def validate_message(message: str):$/;"	f
+version	smdv/banishedsetup.py	/^    version=smdv.__version__,$/;"	v
+wait_for_connected_jsclient	smdv/thissmdv.py	/^def wait_for_connected_jsclient(interval: float = 0.3, max_attempts: int = 6):$/;"	f
+wait_for_server	smdv/thissmdv.py	/^def wait_for_server($/;"	f
+wdd	watch/watch.py	/^wdd = wm.add_watch('\/home\/wacfeld\/ocn\/jax\/watch', mask, rec=True)$/;"	v
+winasync	imd.vim	/^function! s:winasync(cmd, stdinLines)"{{{$/;"	f
+wm	watch/watch.py	/^wm = pyinotify.WatchManager()  # Watch Manager$/;"	v
