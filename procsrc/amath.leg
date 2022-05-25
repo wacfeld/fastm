@@ -1,0 +1,317 @@
+%{
+
+#define YYSTYPE struct node*
+#define YYFREE free_node
+#define LCURLY "{"
+#define RCURLY "}"
+#define YY_CTX_LOCAL
+#define YY_CTX_MEMBERS struct peg_data* data;
+#define YY_INPUT(yy, buf, result, max_size)			\
+{								\
+	if (yy->data->input && *(yy->data->input) != '\0') {	\
+		*buf = *(yy->data->input);			\
+		yy->data->input++;				\
+		result = 1;					\
+	}							\
+	else {							\
+		result = 0;					\
+	}							\
+}
+
+%}
+
+Start	= e0:Expr EOF	{ ((struct peg_data*) yy->data)->result->text = strdup(e0->text); free_node(e0); }
+	| < .+ > EOF	{ ((struct peg_data*) yy->data)->result->text = merror(yytext); }
+
+EOF	= "\n" | !.
+-	= [ \t]*
+
+Expr	= - c0:E
+		(- ci:E -	{ c0 = mk_concat(c0, ci); }
+		)* -		{ $$ = c0; }
+
+E	= s0:Int - '/' !'/' !'_' - s1:Int		{ $$ = mk_frac(s0, s1); }
+	| Int
+
+Int	= s0:Simp - '_' - s1:Simp - '^' - s2:Simp	{ $$ = mk_ter(s0, s1, s2); }
+	| s0:Simp - '_' - s1:Simp			{ $$ = mk_sub(s0, s1); }
+	| s0:Simp - '^' - s1:Simp			{ $$ = mk_sup(s0, s1); }
+	| Simp
+	| < !EOF . >					{ $$ = mk_op(yytext); }
+
+Simp	= Matrix
+	| l:Left - e:ExprG - r:Right		{ $$ = mk_group(l, e, r); }
+	| Binary
+	| Unary
+	| ["] < (!["] .)* > ["]			{ $$ = mtext(mk_str(yytext)); }
+# Constants
+	| < [0-9]+ ('.' [0-9]+)? >	{ $$ = mk_number(yytext); }
+	| Greek
+	| < STD >	{ $$ = mk_op(yytext); }
+	| < SPECIAL >	{ $$ = mk_id(yytext); }
+	| Op
+	| < [a-zA-Z] >	{ $$ = mk_id(yytext); }
+
+IntG	= !Right E
+
+ExprG	= - c0:IntG
+		(- ci:IntG -	{ c0 = mk_concat(c0, ci); }
+		)* -		{ $$ = c0; }
+
+IntM	= !',' IntG
+ExprM	= - c0:IntM
+		(- ci:IntM -	{ c0 = mk_concat(c0, ci); }
+		)* -		{ $$ = c0; }
+Row	= l:Left - s0:ExprM -		{ s0 = cell(s0); }
+		("," - si:ExprM -	{ s0 = mk_concat(s0, cell(si)); }
+		)* - r:Right		{ free_node(l); free_node(r); $$ = s0; }
+Matrix	= l:Left - r0:Row -	{ r0 = row(r0); }
+		("," - ri:Row -	{ r0 = mk_concat(r0, row(ri)); }
+		)+ - r:Right	{ $$ = matrix(l, r0, r); }
+
+Color	= l:Left - < (!Right .)* > - r:Right	{ free_node(l); free_node(r); $$ = mk_str(yytext); }
+Binary	= "frac" - s0:Simp - s1:Simp		{ $$ = mk_frac(s0, s1); }
+	| "root" - s0:Simp - s1:Simp		{ $$ = mk_root(s1, s0); }
+	| "color" - s0:Color - s1:Simp		{ $$ = mk_color(s0, s1); }
+	| "stackrel" - s0:Simp - s1:Simp	{ $$ = mk_stackrel(s1, s0); }
+	| "u" "nder"? "brace" - s0:Simp - '_' - s1:Simp		{ $$ = mk_ubrace(s0, s1); }
+	| "o" "ver"?  "brace" - s0:Simp - '^' - s1:Simp		{ $$ = mk_obrace(s0, s1); }
+
+Unary	= "sqrt" - s:Simp	{ $$ = msqrt(s); }
+	| "text" - s:Simp	{ $$ = mtext(s); }
+	| "ul" - s:Simp		{ $$ = ul(s); }
+	| "cancel" - s:Simp	{ $$ = cancel(s); }
+# Accents
+	| "hat" - t0:Simp		{ $$ = accent(t0, "^"); }
+	| ("bar"|"overline") - t0:Simp	{ $$ = accent(t0, "¯"); }
+	| ("ul"|"underline") - t0:Simp	{ $$ = accent(t0, "_"); }
+	| "vec" - t0:Simp		{ $$ = accent(t0, "→"); }
+	| "dot" - t0:Simp		{ $$ = accent(t0, "."); }
+	| "ddot" - t0:Simp		{ $$ = accent(t0, ".."); }
+	| "tilde" - t0:Simp		{ $$ = accent(t0, "~"); }
+# Fonts
+	| "bbb" - t0:Simp	{ $$ = font(t0, "double-struck"); }
+	| "bb" - t0:Simp	{ $$ = font(t0, "bold"); }
+	| "cc" - t0:Simp	{ $$ = font(t0, "script"); }
+	| "tt" - t0:Simp	{ $$ = font(t0, "monospace"); }
+	| "fr" - t0:Simp	{ $$ = font(t0, "fraktur"); }
+	| "sf" - t0:Simp	{ $$ = font(t0, "sans-serif"); }
+
+Left 	= "{:"			{ $$ = mk_str(""); }
+	| ("(:" | "langle")	{ $$ = mk_str("⟨"); }
+	| "<<"			{ $$ = mk_str("⟨"); }
+	| "("			{ $$ = mk_str("("); }
+	| "["			{ $$ = mk_str("["); }
+	| "{"			{ $$ = mk_str(LCURLY); }
+
+Right 	= ":}"			{ $$ = mk_str(""); }
+	| (":)" | "rangle")	{ $$ = mk_str("⟩"); }
+	| ">>"			{ $$ = mk_str("⟩"); }
+	| ")"			{ $$ = mk_str(")"); }
+	| "]"			{ $$ = mk_str("]"); }
+	| "}"			{ $$ = mk_str(RCURLY); }
+
+Greek	= "alpha"	{ $$ = mk_id("α"); }
+	| "beta"	{ $$ = mk_id("β"); }
+	| "chi"		{ $$ = mk_id("χ"); }
+	| "delta"	{ $$ = mk_id("δ"); }
+	| "Delta"	{ $$ = mk_id("Δ"); }
+	| "epsilon"	{ $$ = mk_id("ε"); }
+	| "epsi"	{ $$ = mk_id("ε"); }
+	| "varepsilon"	{ $$ = mk_id("ε"); }
+	| "eta"		{ $$ = mk_id("η"); }
+	| "gamma"	{ $$ = mk_id("γ"); }
+	| "Gamma"	{ $$ = mk_id("Γ"); }
+	| "iota"	{ $$ = mk_id("ι"); }
+	| "kappa"	{ $$ = mk_id("κ"); }
+	| "lambda"	{ $$ = mk_id("λ"); }
+	| "Lambda"	{ $$ = mk_id("Λ"); }
+	| "lamda"	{ $$ = mk_id("λ"); }
+	| "Lamda"	{ $$ = mk_id("Λ"); }
+	| "mu"		{ $$ = mk_id("μ"); }
+	| "nu"		{ $$ = mk_id("ν"); }
+	| "omega"	{ $$ = mk_id("ω"); }
+	| "Omega"	{ $$ = mk_id("Ω"); }
+	| "phi"		{ $$ = mk_id("φ"); }
+	| "varphi"	{ $$ = mk_id("φ"); }
+	| "Phi"		{ $$ = mk_id("Φ"); }
+	| "pi"		{ $$ = mk_id("π"); }
+	| "Pi"		{ $$ = mk_id("Π"); }
+	| "psi"		{ $$ = mk_id("ψ"); }
+	| "Psi"		{ $$ = mk_id("Ψ"); }
+	| "rho"		{ $$ = mk_id("ρ"); }
+	| "sigma"	{ $$ = mk_id("σ"); }
+	| "Sigma"	{ $$ = mk_id("Σ"); }
+	| "tau"		{ $$ = mk_id("τ"); }
+	| "theta"	{ $$ = mk_id("θ"); }
+	| "vartheta"	{ $$ = mk_id("ϑ"); }
+	| "Theta"	{ $$ = mk_id("Θ"); }
+	| "upsilon"	{ $$ = mk_id("υ"); }
+	| "xi"		{ $$ = mk_id("ξ"); }
+	| "Xi"		{ $$ = mk_id("Ξ"); }
+	| "zeta"	{ $$ = mk_id("ζ"); }
+
+STD	= "arccos"
+	| "arcsin"
+	| "arctan"
+	| "cosh"
+	| "cos"
+	| "coth"
+	| "cot"
+	| "csch"
+	| "csc"
+	| "det"
+	| "dim"
+	| "exp"
+	| "gcd"
+	| "glb"
+	| "lcm"
+	| "lg"
+	| "ln"
+	| "log"
+	| "lub"
+	| "mod"
+	| "sech"
+	| "sec"
+	| "sinh"
+	| "sin"
+	| "tanh"
+	| "tan"
+
+SPECIAL	= "dt"
+	| "dx"
+	| "dy"
+	| "dz"
+	| "f"
+	| "g"
+
+Op	=
+# Arrows
+	  ("uarr" | "uparrow")		{ $$ = mk_op("↑"); }
+	| ("darr" | "downarrow")	{ $$ = mk_op("↓"); }
+	| ("larr" | "leftarrow")	{ $$ = mk_op("←"); }
+	| ("rarr" | "rightarrow")	{ $$ = mk_op("→"); }
+	| "harr"			{ $$ = mk_op("↔"); }
+	| ("rArr" | "Rightarrow")	{ $$ = mk_op("⇒"); }
+	| ("lArr" | "Leftarrow")	{ $$ = mk_op("⇐"); }
+	| "hArr"			{ $$ = mk_op("⇔"); }
+	| ("|->" | "mapsto")		{ $$ = mk_op("↦"); }
+	| ">->>"			{ $$ = mk_op("⤖"); }
+	| ">->"				{ $$ = mk_op("↣"); }
+	| "->>"				{ $$ = mk_op("↠"); }
+	| ("->" | "to")			{ $$ = mk_op("→"); }
+	| "twoheadrightarrowtail"	{ $$ = mk_op("⤖"); }
+	| "rightarrowtail"		{ $$ = mk_op("↣"); }
+	| "twoheadrightarrow"		{ $$ = mk_op("↠"); }
+	| "leftrightarrow"		{ $$ = mk_op("↔"); }
+	| "Leftrightarrow"		{ $$ = mk_op("⇔"); }
+# Logic
+	| "and"			{ $$ = mk_op("and"); }
+	| "or"			{ $$ = mk_op("or"); }
+	| ("not" | "neg")	{ $$ = mk_op("¬"); }
+	| ("=>" | "implies")	{ $$ = mk_op("⇒"); }
+	| "if"			{ $$ = mk_op("if"); }
+	| ("<=>" | "iff")	{ $$ = mk_op("⇔"); }
+	| ("AA" | "forall")	{ $$ = mk_op("∀"); }
+	| ("EE" | "exists")	{ $$ = mk_op("∃"); }
+	| ("_|_" | "bot")	{ $$ = mk_op("⊥"); }
+	| ("TT" | "top")	{ $$ = mk_op("⊤"); }
+	| ("|--" | "vdash")	{ $$ = mk_op("⊢"); }
+	| ("|==" | "models")	{ $$ = mk_op("⊨"); }
+# Misc
+	| "int"			{ $$ = mk_op("∫"); }
+	| "oint"		{ $$ = mk_op("∮"); }
+	| ("del" | "partial")	{ $$ = mk_op("∂"); }
+	| ("grad" | "nabla")	{ $$ = mk_op("∇"); }
+	| ("+-" | "pm")		{ $$ = mk_op("±"); }
+	| ("O/" | "emptyset")	{ $$ = mk_op("∅"); }
+	| ("oo" | "infty")	{ $$ = mk_op("∞"); }
+	| "aleph"		{ $$ = mk_op("ℵ"); }
+	| ("..." | "ldots")	{ $$ = mk_op("…"); }
+	| (":." | "therefore")	{ $$ = mk_op("∴"); }
+	| ("/_\\" | "triangle")	{ $$ = mk_op("△"); }
+	| ("/_" | "angle")	{ $$ = mk_op("∠"); }
+	| ("'" | "prime")	{ $$ = mk_op("′"); }
+	| "\\ "			{ $$ = mk_op("&nbsp;"); }
+	| "frown"		{ $$ = mk_op("⌢"); }
+	| "quad"		{ $$ = mk_op("&nbsp;&nbsp;"); }
+	| "qquad"		{ $$ = mk_op("&nbsp;&nbsp;&nbsp;&nbsp;"); }
+	| "cdots"		{ $$ = mk_op("⋯"); }
+	| "vdots"		{ $$ = mk_op("⋮"); }
+	| "ddots"		{ $$ = mk_op("⋱"); }
+	| "diamond"		{ $$ = mk_op("⋄"); }
+	| "square"		{ $$ = mk_op("□"); }
+	| ("|__" | "lfloor")	{ $$ = mk_op("⌊"); }
+	| ("__|" | "rfloor")	{ $$ = mk_op("⌋"); }
+	| ("|~" | "lceiling")	{ $$ = mk_op("⌈"); }
+	| ("~|" | "rceiling")	{ $$ = mk_op("⌉"); }
+	| "CC"			{ $$ = mk_id("ℂ"); }
+	| "NN"			{ $$ = mk_id("ℕ"); }
+	| "QQ"			{ $$ = mk_id("ℚ"); }
+	| "RR"			{ $$ = mk_id("ℝ"); }
+	| "ZZ"			{ $$ = mk_id("ℤ"); }
+	| "qed"			{ $$ = mk_op("∎"); }
+# Rel
+	| "="				{ $$ = mk_op("="); }
+	| ("!=" | "ne")			{ $$ = mk_op("≠"); }
+	| ":="				{ $$ = mk_op("≔"); }
+	| ("-<=" | "preceq")		{ $$ = mk_op("⪯"); }
+	| ("-<" | "prec")		{ $$ = mk_op("≺"); }
+	| ("<=" | "le")			{ $$ = mk_op("≤"); }
+	| ("lt=" | "leq")		{ $$ = mk_op("≤"); }
+	| "<"				{ $$ = mk_op("&lt;"); }
+	| ("><|" | "rtimes")		{ $$ = mk_op("⋊"); }
+	| (">=" | "ge" | "gt=" | "geq")	{ $$ = mk_op("≥"); }
+	| (">-=" | "succeq")		{ $$ = mk_op("⪰"); }
+	| (">-" | "succ")		{ $$ = mk_op("≻"); }
+	| ">"				{ $$ = mk_op("&gt;"); }
+	| "in"				{ $$ = mk_op("∈"); }
+	| ("!in" | "notin")		{ $$ = mk_op("∉"); }
+	| ("sube" | "subseteq")		{ $$ = mk_op("⊆"); }
+	| ("sub" | "subset")		{ $$ = mk_op("⊂"); }
+	| ("supe" | "supseteq")		{ $$ = mk_op("⊇"); }
+	| ("sup" | "supset")		{ $$ = mk_op("⊃"); }
+	| ("-=" | "equiv")		{ $$ = mk_op("≡"); }
+	| ("~=" | "cong")		{ $$ = mk_op("≌"); }
+	| ("~~" | "approx")		{ $$ = mk_op("≈"); }
+	| ("prop" | "propto")		{ $$ = mk_op("∝"); }
+	| "nsube"			{ $$ = mk_op("⊈"); }
+	| "nsupe"			{ $$ = mk_op("⊉"); }
+	| "nsub"			{ $$ = mk_op("⊄"); }
+	| "nsup"			{ $$ = mk_op("⊅"); }
+	| "ni"				{ $$ = mk_op("∋"); }
+	| "nni"				{ $$ = mk_op("∌"); }
+	| "||"				{ $$ = mk_op("∥"); }
+# Unders
+	| "sum"			{ $$ = mk_underover("Σ"); }
+	| "prod"		{ $$ = mk_underover("Π"); }
+	| ("^^^" | "bigwedge")	{ $$ = mk_underover("⋀"); }
+	| ("vvv" | "bigvee")	{ $$ = mk_underover("⋁"); }
+	| ("nnn" | "bigcap")	{ $$ = mk_underover("⋂"); }
+	| ("uuu" | "bigcup")	{ $$ = mk_underover("⋃"); }
+	| "lim"			{ $$ = mk_underover("lim"); }
+	| "Lim"			{ $$ = mk_underover("Lim"); }
+	| "min"			{ $$ = mk_underover("min"); }
+	| "max"			{ $$ = mk_underover("max"); }
+# Symbols
+	| "+"			{ $$ = mk_op("+"); }
+	| "!"			{ $$ = mk_op("!"); }
+	| ("-:" | "div")	{ $$ = mk_op("÷"); }
+	| "-"			{ $$ = mk_op("−"); }
+	| ("***" | "star")	{ $$ = mk_op("⋆"); }
+	| ("**" | "ast")	{ $$ = mk_op("∗"); }
+	| ("*" | "cdot")	{ $$ = mk_op("⋅"); }
+	| "//"			{ $$ = mk_op("/"); }
+	| ("\\\\" | "backslash"){ $$ = mk_op("\\"); }
+	| "\\"			{ $$ = mk_str(""); }
+	| ("|><|" | "bowtie")	{ $$ = mk_op("⋈"); }
+	| ("|><" | "ltimes")	{ $$ = mk_op("⋉"); }
+	| ("xx"	| "times")	{ $$ = mk_op("×"); }
+	| ("@" | "circ")	{ $$ = mk_op("∘"); }
+	| ("o+" | "oplus")	{ $$ = mk_op("⊕"); }
+	| ("ox" | "otimes")	{ $$ = mk_op("⊗"); }
+	| ("o." | "odot")	{ $$ = mk_op("⊙"); }
+	| ("^^" | "wedge")	{ $$ = mk_op("∧"); }
+	| ("vv" | "vee")	{ $$ = mk_op("∨"); }
+	| ("nn" | "cap")	{ $$ = mk_op("∩"); }
+	| ("uu" | "cup")	{ $$ = mk_op("∪"); }

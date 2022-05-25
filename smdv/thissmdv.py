@@ -22,6 +22,8 @@ __author__ = "Floris Laporte"
 
 ## Imports
 
+import asciitomathml.asciitomathml
+
 # python standard library
 import io
 import os
@@ -64,13 +66,30 @@ HTMLTEMPLATE = """
 <!DOCTYPE html>
 <html>
     <head>
-        <script>
+
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/euler-otf" type="text/css"/>
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/cmu-concrete" type="text/css"/>
+
+        <style>
+        body {{ 
+           font-family: 'CMUConcreteRoman'; 
+           font-weight: normal; 
+           font-style: normal; 
+        }}
+        math {{
+          font-family: 'NeoEulerMedium';
+          font-style: normal;
+        }}
+        </style>
+    
+        <!-- <script>
             MathJax = {{
                     loader: {{load: ['input/asciimath', 'output/chtml', 'ui/menu']}},
                 }};
         </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        -->
     
         <title>sanity check {interactive} </title>
         <link rel="stylesheet" href="{md_css_cdn}">
@@ -250,7 +269,7 @@ HTMLTEMPLATE = """
                     //document.getElementById("content").innerHTML = "<span>\(1+2=4\)</span>";
                     document.getElementById("content").innerHTML = message.cwdBody;
                 }}
-                MathJax.typeset();
+                // MathJax.typeset();
             }}
 
 
@@ -284,6 +303,7 @@ HTMLTEMPLATE = """
                 if (marker) {{
                      marker.scrollIntoView();
                 }}
+                // TODO take advantage of marker system
             }}
 
             backButton.onclick = function() {{
