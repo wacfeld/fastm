@@ -34,17 +34,23 @@ math {
     <!--         }; -->
     <!-- </script> -->
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function(){
-              let mis = document.getElementsByTagName("mi");
-              for(var i = 0; i < mis.length; i++){
-                      mis[i].setAttribute("mathvariant", "normal");}
+    <!-- <script> -->
+    <!--   document.addEventListener("DOMContentLoaded", function(){ -->
+    <!--           let mis = document.getElementsByTagName("mi"); -->
+    <!--           for(var i = 0; i < mis.length; i++){ -->
+    <!--                   mis[i].setAttribute("mathvariant", "normal");} -->
 
-            });
-    </script>
+    <!--         }); -->
+    <!-- </script> -->
   </head>
   <body>
-hello<math><mi>c</mi><mo>+</mo><mfrac><mi>b</mi><mn>2</mn></mfrac></math><br>
+    <mstyle mathvariant="normal">
+hello<math>
 
+<mi>c</mi><mo>+</mo><mfrac><mi>z</mi><mn>2</mn></mfrac>
+
+</math><br>
+
+    </mstyle>
   </body>
 </html>

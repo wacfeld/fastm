@@ -49,6 +49,8 @@ import websockets
 # pandoc
 # neovim-remote (to edit files with vim)
 
+saved_cwd = os.getcwd()
+
 ## Globals
 ARGS = ""  # the smdv command line arguments
 SMDV_DEFAULT_ARGS = os.environ.get("SMDV_DEFAULT_ARGS", "")  # default smdv arguments
@@ -92,7 +94,7 @@ HTMLTEMPLATE = """
         -->
     
         <title>sanity check {interactive} </title>
-        <link rel="stylesheet" href="{md_css_cdn}">
+        <!-- <link rel="stylesheet" href="{md_css_cdn}">
         <style>
             @media (max-width: 767px) {{
             }}
@@ -240,7 +242,7 @@ HTMLTEMPLATE = """
             .highlight .si {{ color: #BB6688; font-weight: bold }} /* Literal.String.Interpol */
             .highlight .sr {{ color: #BB6688 }} /* Literal.String.Regex */
             .highlight .s1 {{ color: #0fa0ce }} /* Literal.String.Single */
-        </style>
+        </style> -->
     </head>
     <body>
         <span class="markdown-body" id="content">ok.</span>
@@ -678,12 +680,20 @@ def create_app() -> flask.Flask:
     return app
 
 
+def exshell(comm, inp):
+    res = subprocess.run(comm.split(' '), input = inp.encode(), stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
+    return res
+
 # encode a string in the given encoding format
 def encode(message: dict) -> dict:
     """ encode the body of a message. """
     if message.get("fileEncoded", False):
         return message  # don't encode again if the message is already encoded
+    
     message["fileEncoded"] = True
+    
+    message["fileBody"] = exshell(saved_cwd + '/procsrc/main', message["fileBody"])
+    
     encoding = message.get("fileEncoding")
     filename = message.get("filename")
     if not encoding:
@@ -842,6 +852,7 @@ def number_of_connected_jsclients():
 
 # main smdv program
 def main() -> int:
+    # print(os.getcwd())
     """ The main smdv program
 
     Returns:

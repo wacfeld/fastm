@@ -3,8 +3,8 @@
 #include <string.h>
 #include "amath.h"
 
-const char tagstart[] = "<math>";
-const char tagend[] = "</math>";
+const char tagstart[] = "<math><mstyle mathvariant=\"normal\">";
+const char tagend[] = "</mstyle></math>";
 const int tagstartlen = sizeof(tagstart) - 1;
 const int tagendlen = sizeof(tagend) - 1;
 const int taglen = tagstartlen + tagendlen;

@@ -9,10 +9,10 @@ BACKMESSAGES	smdv/thissmdv.py	/^BACKMESSAGES = collections.deque()  # for commun
 EVENT_LOOP	smdv/thissmdv.py	/^EVENT_LOOP = asyncio.get_event_loop()$/;"	v
 EventHandler	watch/watch.py	/^class EventHandler(pyinotify.ProcessEvent):$/;"	c
 FORWARDMESSAGES	smdv/thissmdv.py	/^FORWARDMESSAGES = collections.deque()  # for communication between js and py$/;"	v
-GetExecPath	imd.vim	/^function! s:GetExecPath(...) abort$/;"	f
-InstantMarkdownDPath	imd.vim	/^command! InstantMarkdownDPath call s:instant_markdown_d_path()$/;"	c
-InstantMarkdownPreview	imd.vim	/^command! -buffer InstantMarkdownPreview call s:previewMarkdown()$/;"	c
-InstantMarkdownStop	imd.vim	/^command! -buffer InstantMarkdownStop call s:cleanUp()$/;"	c
+GetExecPath	old/imd.vim	/^function! s:GetExecPath(...) abort$/;"	f
+InstantMarkdownDPath	old/imd.vim	/^command! InstantMarkdownDPath call s:instant_markdown_d_path()$/;"	c
+InstantMarkdownPreview	old/imd.vim	/^command! -buffer InstantMarkdownPreview call s:previewMarkdown()$/;"	c
+InstantMarkdownStop	old/imd.vim	/^command! -buffer InstantMarkdownStop call s:cleanUp()$/;"	c
 JSCLIENTS	smdv/thissmdv.py	/^JSCLIENTS = set()  # jsclients wait for an update from the pyclient$/;"	v
 LCURLY	procsrc/amath.leg.c	12;"	d	file:
 MESSAGE	smdv/thissmdv.py	/^MESSAGE = {}$/;"	v
@@ -30,9 +30,9 @@ NODE_UNDEROVER	procsrc/util.h	/^	NODE_UNDEROVER,$/;"	e	enum:node_t
 NODE_UNKNOWN	procsrc/util.h	/^	NODE_UNKNOWN$/;"	e	enum:node_t
 PYCLIENTS	smdv/thissmdv.py	/^PYCLIENTS = set()  # pyclients update the html body of the jsclient$/;"	v
 RCURLY	procsrc/amath.leg.c	13;"	d	file:
-ResolveExecutable	imd.vim	/^function! s:ResolveExecutable(...) abort$/;"	f
+ResolveExecutable	old/imd.vim	/^function! s:ResolveExecutable(...) abort$/;"	f
 SMDV_DEFAULT_ARGS	smdv/thissmdv.py	/^SMDV_DEFAULT_ARGS = os.environ.get("SMDV_DEFAULT_ARGS", "")  # default smdv arguments$/;"	v
-TraverseAncestorDirSearch	imd.vim	/^function! s:TraverseAncestorDirSearch(rootDir) abort$/;"	f
+TraverseAncestorDirSearch	old/imd.vim	/^function! s:TraverseAncestorDirSearch(rootDir) abort$/;"	f
 UNARY_FN	procsrc/util.c	98;"	d	file:
 UTIL_H	procsrc/util.h	2;"	d
 WEBSOCKETS_SERVER	smdv/thissmdv.py	/^WEBSOCKETS_SERVER = None  # websockets server$/;"	v
@@ -316,15 +316,17 @@ _yycontext	procsrc/amath.leg.c	/^struct _yycontext {$/;"	s	file:
 _yyctx	procsrc/amath.leg.c	/^yycontext _yyctx= { 0, 0 };$/;"	v
 _yythunk	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	s	file:
 accent	procsrc/util.c	/^struct node *accent(struct node *s0, const char *accent)$/;"	f
+accent	procsrc/util.s	/^accent:$/;"	l
 action	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
 amath_to_mathml	procsrc/amath.c	/^char *amath_to_mathml(const char *text)$/;"	f
+amath_to_mathml	procsrc/amath.s	/^amath_to_mathml:$/;"	l
 api_echo	old/flask/server.py	/^def api_echo():$/;"	f
 app	old/flask/server.py	/^app = Flask(__name__)$/;"	v
 ask_num_js_clients	smdv/thissmdv.py	/^async def ask_num_js_clients():$/;"	f
 author	smdv/banishedsetup.py	/^    author=smdv.__author__,$/;"	v
 author_email	smdv/banishedsetup.py	/^    author_email="floris.laporte@gmail.com",$/;"	v
 begin	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
-bufGetLines	imd.vim	/^function! s:bufGetLines(bufnr)"{{{$/;"	f
+bufGetLines	old/imd.vim	/^function! s:bufGetLines(bufnr)"{{{$/;"	f
 c0	procsrc/amath.leg.c	3323;"	d	file:
 c0	procsrc/amath.leg.c	3336;"	d	file:
 c0	procsrc/amath.leg.c	3341;"	d	file:
@@ -337,7 +339,9 @@ c0	procsrc/amath.leg.c	3613;"	d	file:
 c0	procsrc/amath.leg.c	3626;"	d	file:
 c0	procsrc/amath.leg.c	3631;"	d	file:
 c0	procsrc/amath.leg.c	3644;"	d	file:
+cancel	procsrc/util.s	/^cancel:$/;"	l
 cell	procsrc/util.c	/^struct node *cell(struct node *s0)$/;"	f
+cell	procsrc/util.s	/^cell:$/;"	l
 change_current_working_directory	smdv/thissmdv.py	/^def change_current_working_directory(path: str) -> str:$/;"	f
 ci	procsrc/amath.leg.c	3322;"	d	file:
 ci	procsrc/amath.leg.c	3335;"	d	file:
@@ -352,7 +356,7 @@ ci	procsrc/amath.leg.c	3625;"	d	file:
 ci	procsrc/amath.leg.c	3630;"	d	file:
 ci	procsrc/amath.leg.c	3643;"	d	file:
 classifiers	smdv/banishedsetup.py	/^    classifiers=[$/;"	v
-cleanUp	imd.vim	/^fu! s:cleanUp()$/;"	f
+cleanUp	old/imd.vim	/^fu! s:cleanUp()$/;"	f
 create_app	smdv/thissmdv.py	/^def create_app() -> flask.Flask:$/;"	f
 curs	watch/inscursor.py	/^curs = int(std[0])-1$/;"	v
 description	smdv/banishedsetup.py	/^    description=smdv.__doc__,$/;"	v
@@ -376,34 +380,38 @@ e0	procsrc/amath.leg.c	3676;"	d	file:
 edit_in_neovim	smdv/thissmdv.py	/^def edit_in_neovim(filename: str = ""):$/;"	f
 encode	smdv/thissmdv.py	/^def encode(message: dict) -> dict:$/;"	f
 end	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
+exshell	smdv/thissmdv.py	/^def exshell(comm, inp):$/;"	f
 font	procsrc/util.c	/^struct node *font(struct node *s0, const char *font)$/;"	f
+font	procsrc/util.s	/^font:$/;"	l
 free_node	procsrc/util.c	/^void free_node(struct node *n)$/;"	f
-g:instant_markdown_allow_external_content	imd.vim	/^    let g:instant_markdown_allow_external_content = 1$/;"	v
-g:instant_markdown_allow_unsafe_content	imd.vim	/^    let g:instant_markdown_allow_unsafe_content = 0$/;"	v
-g:instant_markdown_autoscroll	imd.vim	/^    let g:instant_markdown_autoscroll = 1$/;"	v
-g:instant_markdown_autostart	imd.vim	/^    let g:instant_markdown_autostart = 1$/;"	v
-g:instant_markdown_logfile	imd.vim	/^    let g:instant_markdown_logfile = (has('win32') || has('win64') ? 'NUL' : '\/dev\/null')$/;"	v
-g:instant_markdown_mathjax	imd.vim	/^    let g:instant_markdown_mathjax = 0$/;"	v
-g:instant_markdown_mermaid	imd.vim	/^    let g:instant_markdown_mermaid = 0$/;"	v
-g:instant_markdown_open_to_the_world	imd.vim	/^    let g:instant_markdown_open_to_the_world = 0$/;"	v
-g:instant_markdown_port	imd.vim	/^    let g:instant_markdown_port = 8090$/;"	v
-g:instant_markdown_python	imd.vim	/^    let g:instant_markdown_python = 0$/;"	v
-g:instant_markdown_slow	imd.vim	/^    let g:instant_markdown_slow = 0$/;"	v
+free_node	procsrc/util.s	/^free_node:$/;"	l
+g:instant_markdown_allow_external_content	old/imd.vim	/^    let g:instant_markdown_allow_external_content = 1$/;"	v
+g:instant_markdown_allow_unsafe_content	old/imd.vim	/^    let g:instant_markdown_allow_unsafe_content = 0$/;"	v
+g:instant_markdown_autoscroll	old/imd.vim	/^    let g:instant_markdown_autoscroll = 1$/;"	v
+g:instant_markdown_autostart	old/imd.vim	/^    let g:instant_markdown_autostart = 1$/;"	v
+g:instant_markdown_logfile	old/imd.vim	/^    let g:instant_markdown_logfile = (has('win32') || has('win64') ? 'NUL' : '\/dev\/null')$/;"	v
+g:instant_markdown_mathjax	old/imd.vim	/^    let g:instant_markdown_mathjax = 0$/;"	v
+g:instant_markdown_mermaid	old/imd.vim	/^    let g:instant_markdown_mermaid = 0$/;"	v
+g:instant_markdown_open_to_the_world	old/imd.vim	/^    let g:instant_markdown_open_to_the_world = 0$/;"	v
+g:instant_markdown_port	old/imd.vim	/^    let g:instant_markdown_port = 8090$/;"	v
+g:instant_markdown_python	old/imd.vim	/^    let g:instant_markdown_python = 0$/;"	v
+g:instant_markdown_slow	old/imd.vim	/^    let g:instant_markdown_slow = 0$/;"	v
 handle_message	smdv/thissmdv.py	/^async def handle_message(client: websockets.WebSocketServerProtocol, message: str):$/;"	f
 handler	watch/watch.py	/^handler = EventHandler()$/;"	v
 hello_world	old/flask/server.py	/^def hello_world():$/;"	f
 http	old/node/test.js	/^var http = require('http');$/;"	v
 index	smdv/thissmdv.py	/^    def index(path: str = "") -> str:$/;"	f	function:create_app
-initDict	imd.vim	/^function! s:initDict()$/;"	f
+initDict	old/imd.vim	/^function! s:initDict()$/;"	f
 inner	procsrc/util.c	/^void inner(struct node *n)$/;"	f
 inner	procsrc/util.h	/^	char *inner;$/;"	m	struct:node
+inner	procsrc/util.s	/^inner:$/;"	l
 input	procsrc/util.h	/^	const char *input;$/;"	m	struct:peg_data
 install_requires	smdv/banishedsetup.py	/^    install_requires=["flask", "websockets"],$/;"	v
-instant	imd.vim	/^    aug instant-markdown$/;"	a
-instant_markdown_d_path	imd.vim	/^function! s:instant_markdown_d_path()$/;"	f
+instant	old/imd.vim	/^    aug instant-markdown$/;"	a
+instant_markdown_d_path	old/imd.vim	/^function! s:instant_markdown_d_path()$/;"	f
 ipynb2body	smdv/thissmdv.py	/^def ipynb2body(content: str) -> str:$/;"	f
 is_binary_file	smdv/thissmdv.py	/^def is_binary_file(filename: str) -> bool:$/;"	f
-killDaemon	imd.vim	/^function! s:killDaemon()"{{{$/;"	f
+killDaemon	old/imd.vim	/^function! s:killDaemon()"{{{$/;"	f
 kill_websocket_server	smdv/thissmdv.py	/^def kill_websocket_server() -> int:$/;"	f
 l	procsrc/amath.leg.c	3173;"	d	file:
 l	procsrc/amath.leg.c	3186;"	d	file:
@@ -435,21 +443,45 @@ long_description	smdv/banishedsetup.py	/^    long_description = f.read()$/;"	v
 long_description	smdv/banishedsetup.py	/^    long_description=long_description,$/;"	v
 long_description_content_type	smdv/banishedsetup.py	/^    long_description_content_type="text\/markdown",$/;"	v
 main	procsrc/main.c	/^int main(int argc, char **argv)$/;"	f
+main	procsrc/main.s	/^main:$/;"	l
 main	smdv/thissmdv.py	/^def main() -> int:$/;"	f
 mask	watch/watch.py	/^mask = pyinotify.IN_DELETE | pyinotify.IN_CREATE | pyinotify.IN_MODIFY  # watched events$/;"	v
-math_obj	a2m.py	/^math_obj =  asciitomathml.asciitomathml.AsciiMathML()$/;"	v
+math_obj	old/a2m.py	/^math_obj =  asciitomathml.asciitomathml.AsciiMathML()$/;"	v
 matrix	procsrc/util.c	/^struct node *matrix(struct node *l, struct node *s0, struct node *r)$/;"	f
+matrix	procsrc/util.s	/^matrix:$/;"	l
 md2body	smdv/thissmdv.py	/^def md2body(content: str = "") -> str:$/;"	f
 merror	procsrc/util.c	/^char *merror(char *input)$/;"	f
+merror	procsrc/util.s	/^merror:$/;"	l
+mk_color	procsrc/util.s	/^mk_color:$/;"	l
 mk_concat	procsrc/util.c	/^struct node *mk_concat(struct node *s0, struct node *s1)$/;"	f
+mk_concat	procsrc/util.s	/^mk_concat:$/;"	l
 mk_empty	procsrc/util.c	/^struct node *mk_empty(enum node_t type)$/;"	f
+mk_empty	procsrc/util.s	/^mk_empty:$/;"	l
+mk_frac	procsrc/util.s	/^mk_frac:$/;"	l
 mk_group	procsrc/util.c	/^struct node *mk_group(struct node *l, struct node *e, struct node *r)$/;"	f
+mk_group	procsrc/util.s	/^mk_group:$/;"	l
+mk_id	procsrc/util.s	/^mk_id:$/;"	l
 mk_node	procsrc/util.c	/^struct node *mk_node(enum node_t type, char *str)$/;"	f
+mk_node	procsrc/util.s	/^mk_node:$/;"	l
+mk_number	procsrc/util.s	/^mk_number:$/;"	l
+mk_obrace	procsrc/util.s	/^mk_obrace:$/;"	l
+mk_op	procsrc/util.s	/^mk_op:$/;"	l
 mk_peg_data	procsrc/amath.c	/^struct peg_data *mk_peg_data(const char *input)$/;"	f
+mk_peg_data	procsrc/amath.s	/^mk_peg_data:$/;"	l
+mk_root	procsrc/util.s	/^mk_root:$/;"	l
+mk_stackrel	procsrc/util.s	/^mk_stackrel:$/;"	l
 mk_str	procsrc/util.c	/^struct node *mk_str(char *str)$/;"	f
+mk_str	procsrc/util.s	/^mk_str:$/;"	l
 mk_sub	procsrc/util.c	/^struct node *mk_sub(struct node *s0, struct node *s1)$/;"	f
+mk_sub	procsrc/util.s	/^mk_sub:$/;"	l
+mk_sup	procsrc/util.s	/^mk_sup:$/;"	l
 mk_ter	procsrc/util.c	/^struct node *mk_ter(struct node *s0, struct node *s1, struct node *s2)$/;"	f
-myBufNr	imd.vim	/^fu! s:myBufNr()$/;"	f
+mk_ter	procsrc/util.s	/^mk_ter:$/;"	l
+mk_ubrace	procsrc/util.s	/^mk_ubrace:$/;"	l
+mk_underover	procsrc/util.s	/^mk_underover:$/;"	l
+msqrt	procsrc/util.s	/^msqrt:$/;"	l
+mtext	procsrc/util.s	/^mtext:$/;"	l
+myBufNr	old/imd.vim	/^fu! s:myBufNr()$/;"	f
 name	smdv/banishedsetup.py	/^    name="smdv",$/;"	v
 next	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	typeref:struct:_yythunk::_yythunk	file:
 node	procsrc/util.h	/^struct node {$/;"	s
@@ -459,15 +491,15 @@ number_of_connected_jsclients	smdv/thissmdv.py	/^def number_of_connected_jsclien
 open_browser	smdv/thissmdv.py	/^def open_browser():$/;"	f
 parse_args	smdv/thissmdv.py	/^def parse_args(args: tuple, **kwargs) -> argparse.Namespace:$/;"	f
 peg_data	procsrc/util.h	/^struct peg_data {$/;"	s
-popBuffer	imd.vim	/^function! s:popBuffer(bufnr)$/;"	f
-popMarkdown	imd.vim	/^fu! s:popMarkdown()$/;"	f
-previewMarkdown	imd.vim	/^fu! s:previewMarkdown()$/;"	f
+popBuffer	old/imd.vim	/^function! s:popBuffer(bufnr)$/;"	f
+popMarkdown	old/imd.vim	/^fu! s:popMarkdown()$/;"	f
+previewMarkdown	old/imd.vim	/^fu! s:previewMarkdown()$/;"	f
 print_message	smdv/thissmdv.py	/^def print_message(message: dict, **kwargs):$/;"	f
 process_IN_CREATE	watch/watch.py	/^  def process_IN_CREATE(self, event):$/;"	m	class:EventHandler
 process_IN_DELETE	watch/watch.py	/^  def process_IN_DELETE(self, event):$/;"	m	class:EventHandler
 process_IN_MODIFY	watch/watch.py	/^  def process_IN_MODIFY(self, event):$/;"	m	class:EventHandler
-pushBuffer	imd.vim	/^function! s:pushBuffer(bufnr)$/;"	f
-pushMarkdown	imd.vim	/^fu! s:pushMarkdown()$/;"	f
+pushBuffer	old/imd.vim	/^function! s:pushBuffer(bufnr)$/;"	f
+pushMarkdown	old/imd.vim	/^fu! s:pushMarkdown()$/;"	f
 py_modules	smdv/banishedsetup.py	/^    py_modules=["smdv"],$/;"	v
 r	procsrc/amath.leg.c	3172;"	d	file:
 r	procsrc/amath.leg.c	3185;"	d	file:
@@ -501,7 +533,7 @@ r0	procsrc/amath.leg.c	3214;"	d	file:
 r0	procsrc/amath.leg.c	3229;"	d	file:
 r0	procsrc/amath.leg.c	3236;"	d	file:
 r0	procsrc/amath.leg.c	3251;"	d	file:
-refreshView	imd.vim	/^function! s:refreshView()"{{{$/;"	f
+refreshView	old/imd.vim	/^function! s:refreshView()"{{{$/;"	f
 register_client	smdv/thissmdv.py	/^async def register_client(client: websockets.WebSocketServerProtocol):$/;"	f
 request_server_status	smdv/thissmdv.py	/^def request_server_status(server: str = "flask") -> str:$/;"	f
 rest	watch/inscursor.py	/^rest = ''.join(std[1:])$/;"	v
@@ -513,6 +545,7 @@ ri	procsrc/amath.leg.c	3228;"	d	file:
 ri	procsrc/amath.leg.c	3235;"	d	file:
 ri	procsrc/amath.leg.c	3250;"	d	file:
 row	procsrc/util.c	/^struct node *row(struct node *s0)$/;"	f
+row	procsrc/util.s	/^row:$/;"	l
 run_flask_server	smdv/thissmdv.py	/^def run_flask_server():$/;"	f
 run_server_in_subprocess	smdv/thissmdv.py	/^def run_server_in_subprocess(server="flask"):$/;"	f
 run_websocket_server	smdv/thissmdv.py	/^def run_websocket_server():$/;"	f
@@ -608,8 +641,9 @@ s2	procsrc/amath.leg.c	3554;"	d	file:
 s2	procsrc/amath.leg.c	3568;"	d	file:
 s2	procsrc/amath.leg.c	3574;"	d	file:
 s2	procsrc/amath.leg.c	3588;"	d	file:
-s:ROOT_DIR	imd.vim	/^let s:ROOT_DIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')"{{{$/;"	v
-s:shell_redirect	imd.vim	/^let s:shell_redirect = ' 1>> '. g:instant_markdown_logfile . ' 2>&1 '"}}}$/;"	v
+s:ROOT_DIR	old/imd.vim	/^let s:ROOT_DIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')"{{{$/;"	v
+s:shell_redirect	old/imd.vim	/^let s:shell_redirect = ' 1>> '. g:instant_markdown_logfile . ' 2>&1 '"}}}$/;"	v
+saved_cwd	smdv/thissmdv.py	/^saved_cwd = os.getcwd()$/;"	v
 send_as_pyclient	smdv/thissmdv.py	/^def send_as_pyclient(message: dict):$/;"	f
 send_as_pyclient_async	smdv/thissmdv.py	/^async def send_as_pyclient_async(message: dict):$/;"	f
 send_delete_request_to_server	smdv/thissmdv.py	/^def send_delete_request_to_server():$/;"	f
@@ -623,11 +657,11 @@ si	procsrc/amath.leg.c	3294;"	d	file:
 si	procsrc/amath.leg.c	3301;"	d	file:
 si	procsrc/amath.leg.c	3316;"	d	file:
 socket_in_use	smdv/thissmdv.py	/^def socket_in_use(address: str) -> bool:$/;"	f
-startDaemon	imd.vim	/^function! s:startDaemon(initialMDLines)"{{{$/;"	f
+startDaemon	old/imd.vim	/^function! s:startDaemon(initialMDLines)"{{{$/;"	f
 std	watch/inscursor.py	/^std = list(stdin)$/;"	v
 stop_flask_server	smdv/thissmdv.py	/^    def stop_flask_server() -> int:$/;"	f	function:create_app
-system	imd.vim	/^function! s:system(cmd, stdin)"{{{$/;"	f
-systemasync	imd.vim	/^function! s:systemasync(cmd, stdinLines)"{{{$/;"	f
+system	old/imd.vim	/^function! s:system(cmd, stdin)"{{{$/;"	f
+systemasync	old/imd.vim	/^function! s:systemasync(cmd, stdinLines)"{{{$/;"	f
 t0	procsrc/amath.leg.c	2758;"	d	file:
 t0	procsrc/amath.leg.c	2771;"	d	file:
 t0	procsrc/amath.leg.c	2776;"	d	file:
@@ -664,15 +698,16 @@ t0	procsrc/amath.leg.c	3046;"	d	file:
 t0	procsrc/amath.leg.c	3059;"	d	file:
 tagbr	procsrc/main.c	/^const char tagbr[] = "<br>";$/;"	v
 tagbrlen	procsrc/main.c	/^const int tagbrlen = sizeof(tagbr) - 1;$/;"	v
-tagend	procsrc/main.c	/^const char tagend[] = "<\/math>";$/;"	v
+tagend	procsrc/main.c	/^const char tagend[] = "<\/mstyle><\/math>";$/;"	v
 tagendlen	procsrc/main.c	/^const int tagendlen = sizeof(tagend) - 1;$/;"	v
 taglen	procsrc/main.c	/^const int taglen = tagstartlen + tagendlen;$/;"	v
-tagstart	procsrc/main.c	/^const char tagstart[] = "<math>";$/;"	v
+tagstart	procsrc/main.c	/^const char tagstart[] = "<math><mstyle mathvariant=\\"normal\\">";$/;"	v
 tagstartlen	procsrc/main.c	/^const int tagstartlen = sizeof(tagstart) - 1;$/;"	v
-temperedRefresh	imd.vim	/^fu! s:temperedRefresh()$/;"	f
+temperedRefresh	old/imd.vim	/^fu! s:temperedRefresh()$/;"	f
 text	procsrc/util.h	/^	char *text;$/;"	m	struct:node
 txt2body	smdv/thissmdv.py	/^def txt2body(content: str) -> str:$/;"	f
 type	procsrc/util.h	/^	enum node_t type;$/;"	m	struct:node	typeref:enum:node::node_t
+ul	procsrc/util.s	/^ul:$/;"	l
 unregister_client	smdv/thissmdv.py	/^async def unregister_client(client: websockets.WebSocketServerProtocol):$/;"	f
 update_filename	smdv/thissmdv.py	/^def update_filename():$/;"	f
 url	smdv/banishedsetup.py	/^    url="https:\/\/github.com\/flaport\/smdv",$/;"	v
@@ -680,8 +715,9 @@ validate_message	smdv/thissmdv.py	/^def validate_message(message: str):$/;"	f
 version	smdv/banishedsetup.py	/^    version=smdv.__version__,$/;"	v
 wait_for_connected_jsclient	smdv/thissmdv.py	/^def wait_for_connected_jsclient(interval: float = 0.3, max_attempts: int = 6):$/;"	f
 wait_for_server	smdv/thissmdv.py	/^def wait_for_server($/;"	f
-wdd	watch/watch.py	/^wdd = wm.add_watch('\/home\/wacfeld\/ocn\/jax\/watch', mask, rec=True)$/;"	v
-winasync	imd.vim	/^function! s:winasync(cmd, stdinLines)"{{{$/;"	f
+watchpath	watch/watch.py	/^watchpath = sys.argv[1]$/;"	v
+wdd	watch/watch.py	/^wdd = wm.add_watch(sys.argv[1], mask, rec=True)$/;"	v
+winasync	old/imd.vim	/^function! s:winasync(cmd, stdinLines)"{{{$/;"	f
 wm	watch/watch.py	/^wm = pyinotify.WatchManager()  # Watch Manager$/;"	v
 yy	procsrc/amath.leg.c	/^YY_RULE(int) yy_Binary(yycontext *yy); \/* 12 *\/$/;"	v
 yy	procsrc/amath.leg.c	/^YY_RULE(int) yy_Color(yycontext *yy); \/* 22 *\/$/;"	v
@@ -929,258 +965,511 @@ yy	procsrc/amath.leg.c	962;"	d	file:
 yy	procsrc/amath.leg.c	976;"	d	file:
 yy	procsrc/amath.leg.c	990;"	d	file:
 yyAccept	procsrc/amath.leg.c	/^YY_LOCAL(int) yyAccept(yycontext *yy, int tp0)$/;"	f
+yyAccept	procsrc/amath.s	/^yyAccept:$/;"	l
 yyCommit	procsrc/amath.leg.c	/^YY_LOCAL(void) yyCommit(yycontext *yy)$/;"	f
+yyCommit	procsrc/amath.s	/^yyCommit:$/;"	l
 yyDo	procsrc/amath.leg.c	/^YY_LOCAL(void) yyDo(yycontext *yy, yyaction action, int begin, int end)$/;"	f
+yyDo	procsrc/amath.s	/^yyDo:$/;"	l
 yyDone	procsrc/amath.leg.c	/^YY_LOCAL(void) yyDone(yycontext *yy)$/;"	f
+yyDone	procsrc/amath.s	/^yyDone:$/;"	l
 yyPop	procsrc/amath.leg.c	/^YY_LOCAL(void) yyPop(yycontext *yy, char *text, int count)   { yy->__val -= count; }$/;"	f
+yyPop	procsrc/amath.s	/^yyPop:$/;"	l
 yyPush	procsrc/amath.leg.c	/^YY_LOCAL(void) yyPush(yycontext *yy, char *text, int count)$/;"	f
+yyPush	procsrc/amath.s	/^yyPush:$/;"	l
 yySet	procsrc/amath.leg.c	/^YY_LOCAL(void) yySet(yycontext *yy, char *text, int count)   { yy->__val[count]= yy->__; }$/;"	f
+yySet	procsrc/amath.s	/^yySet:$/;"	l
 yyText	procsrc/amath.leg.c	/^YY_LOCAL(int) yyText(yycontext *yy, int begin, int end)$/;"	f
+yyText	procsrc/amath.s	/^yyText:$/;"	l
 yy_100_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_100_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_100_Op	procsrc/amath.s	/^yy_100_Op:$/;"	l
 yy_101_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_101_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_101_Op	procsrc/amath.s	/^yy_101_Op:$/;"	l
 yy_102_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_102_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_102_Op	procsrc/amath.s	/^yy_102_Op:$/;"	l
 yy_103_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_103_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_103_Op	procsrc/amath.s	/^yy_103_Op:$/;"	l
 yy_104_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_104_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_104_Op	procsrc/amath.s	/^yy_104_Op:$/;"	l
 yy_105_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_105_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_105_Op	procsrc/amath.s	/^yy_105_Op:$/;"	l
 yy_106_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_106_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_106_Op	procsrc/amath.s	/^yy_106_Op:$/;"	l
 yy_107_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_107_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_107_Op	procsrc/amath.s	/^yy_107_Op:$/;"	l
 yy_108_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_108_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_108_Op	procsrc/amath.s	/^yy_108_Op:$/;"	l
 yy_109_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_109_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_109_Op	procsrc/amath.s	/^yy_109_Op:$/;"	l
 yy_10_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_10_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_10_Greek	procsrc/amath.s	/^yy_10_Greek:$/;"	l
 yy_10_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_10_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_10_Op	procsrc/amath.s	/^yy_10_Op:$/;"	l
 yy_10_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_10_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_10_Unary	procsrc/amath.s	/^yy_10_Unary:$/;"	l
 yy_110_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_110_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_110_Op	procsrc/amath.s	/^yy_110_Op:$/;"	l
 yy_111_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_111_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_111_Op	procsrc/amath.s	/^yy_111_Op:$/;"	l
 yy_112_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_112_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_112_Op	procsrc/amath.s	/^yy_112_Op:$/;"	l
 yy_113_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_113_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_113_Op	procsrc/amath.s	/^yy_113_Op:$/;"	l
 yy_114_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_114_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_114_Op	procsrc/amath.s	/^yy_114_Op:$/;"	l
 yy_115_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_115_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_115_Op	procsrc/amath.s	/^yy_115_Op:$/;"	l
 yy_116_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_116_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_116_Op	procsrc/amath.s	/^yy_116_Op:$/;"	l
 yy_117_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_117_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_117_Op	procsrc/amath.s	/^yy_117_Op:$/;"	l
 yy_118_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_118_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_118_Op	procsrc/amath.s	/^yy_118_Op:$/;"	l
 yy_119_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_119_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_119_Op	procsrc/amath.s	/^yy_119_Op:$/;"	l
 yy_11_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_11_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_11_Greek	procsrc/amath.s	/^yy_11_Greek:$/;"	l
 yy_11_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_11_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_11_Op	procsrc/amath.s	/^yy_11_Op:$/;"	l
 yy_11_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_11_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_11_Unary	procsrc/amath.s	/^yy_11_Unary:$/;"	l
 yy_120_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_120_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_120_Op	procsrc/amath.s	/^yy_120_Op:$/;"	l
 yy_121_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_121_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_121_Op	procsrc/amath.s	/^yy_121_Op:$/;"	l
 yy_122_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_122_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_122_Op	procsrc/amath.s	/^yy_122_Op:$/;"	l
 yy_123_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_123_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_123_Op	procsrc/amath.s	/^yy_123_Op:$/;"	l
 yy_12_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_12_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_12_Greek	procsrc/amath.s	/^yy_12_Greek:$/;"	l
 yy_12_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_12_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_12_Op	procsrc/amath.s	/^yy_12_Op:$/;"	l
 yy_12_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_12_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_12_Unary	procsrc/amath.s	/^yy_12_Unary:$/;"	l
 yy_13_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_13_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_13_Greek	procsrc/amath.s	/^yy_13_Greek:$/;"	l
 yy_13_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_13_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_13_Op	procsrc/amath.s	/^yy_13_Op:$/;"	l
 yy_13_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_13_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_13_Unary	procsrc/amath.s	/^yy_13_Unary:$/;"	l
 yy_14_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_14_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_14_Greek	procsrc/amath.s	/^yy_14_Greek:$/;"	l
 yy_14_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_14_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_14_Op	procsrc/amath.s	/^yy_14_Op:$/;"	l
 yy_14_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_14_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_14_Unary	procsrc/amath.s	/^yy_14_Unary:$/;"	l
 yy_15_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_15_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_15_Greek	procsrc/amath.s	/^yy_15_Greek:$/;"	l
 yy_15_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_15_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_15_Op	procsrc/amath.s	/^yy_15_Op:$/;"	l
 yy_15_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_15_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_15_Unary	procsrc/amath.s	/^yy_15_Unary:$/;"	l
 yy_16_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_16_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_16_Greek	procsrc/amath.s	/^yy_16_Greek:$/;"	l
 yy_16_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_16_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_16_Op	procsrc/amath.s	/^yy_16_Op:$/;"	l
 yy_16_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_16_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_16_Unary	procsrc/amath.s	/^yy_16_Unary:$/;"	l
 yy_17_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_17_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_17_Greek	procsrc/amath.s	/^yy_17_Greek:$/;"	l
 yy_17_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_17_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_17_Op	procsrc/amath.s	/^yy_17_Op:$/;"	l
 yy_17_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_17_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_17_Unary	procsrc/amath.s	/^yy_17_Unary:$/;"	l
 yy_18_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_18_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_18_Greek	procsrc/amath.s	/^yy_18_Greek:$/;"	l
 yy_18_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_18_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_18_Op	procsrc/amath.s	/^yy_18_Op:$/;"	l
 yy_19_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_19_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_19_Greek	procsrc/amath.s	/^yy_19_Greek:$/;"	l
 yy_19_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_19_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_19_Op	procsrc/amath.s	/^yy_19_Op:$/;"	l
 yy_1_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Binary	procsrc/amath.s	/^yy_1_Binary:$/;"	l
 yy_1_Color	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Color(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Color	procsrc/amath.s	/^yy_1_Color:$/;"	l
 yy_1_E	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_E(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_E	procsrc/amath.s	/^yy_1_E:$/;"	l
 yy_1_Expr	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Expr(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Expr	procsrc/amath.s	/^yy_1_Expr:$/;"	l
 yy_1_ExprG	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_ExprG(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_ExprG	procsrc/amath.s	/^yy_1_ExprG:$/;"	l
 yy_1_ExprM	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_ExprM(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_ExprM	procsrc/amath.s	/^yy_1_ExprM:$/;"	l
 yy_1_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Greek	procsrc/amath.s	/^yy_1_Greek:$/;"	l
 yy_1_Int	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Int(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Int	procsrc/amath.s	/^yy_1_Int:$/;"	l
 yy_1_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Left	procsrc/amath.s	/^yy_1_Left:$/;"	l
 yy_1_Matrix	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Matrix(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Matrix	procsrc/amath.s	/^yy_1_Matrix:$/;"	l
 yy_1_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Op	procsrc/amath.s	/^yy_1_Op:$/;"	l
 yy_1_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Right	procsrc/amath.s	/^yy_1_Right:$/;"	l
 yy_1_Row	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Row(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Row	procsrc/amath.s	/^yy_1_Row:$/;"	l
 yy_1_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Simp	procsrc/amath.s	/^yy_1_Simp:$/;"	l
 yy_1_Start	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Start(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Start	procsrc/amath.s	/^yy_1_Start:$/;"	l
 yy_1_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_1_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_1_Unary	procsrc/amath.s	/^yy_1_Unary:$/;"	l
 yy_20_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_20_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_20_Greek	procsrc/amath.s	/^yy_20_Greek:$/;"	l
 yy_20_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_20_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_20_Op	procsrc/amath.s	/^yy_20_Op:$/;"	l
 yy_21_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_21_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_21_Greek	procsrc/amath.s	/^yy_21_Greek:$/;"	l
 yy_21_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_21_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_21_Op	procsrc/amath.s	/^yy_21_Op:$/;"	l
 yy_22_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_22_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_22_Greek	procsrc/amath.s	/^yy_22_Greek:$/;"	l
 yy_22_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_22_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_22_Op	procsrc/amath.s	/^yy_22_Op:$/;"	l
 yy_23_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_23_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_23_Greek	procsrc/amath.s	/^yy_23_Greek:$/;"	l
 yy_23_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_23_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_23_Op	procsrc/amath.s	/^yy_23_Op:$/;"	l
 yy_24_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_24_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_24_Greek	procsrc/amath.s	/^yy_24_Greek:$/;"	l
 yy_24_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_24_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_24_Op	procsrc/amath.s	/^yy_24_Op:$/;"	l
 yy_25_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_25_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_25_Greek	procsrc/amath.s	/^yy_25_Greek:$/;"	l
 yy_25_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_25_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_25_Op	procsrc/amath.s	/^yy_25_Op:$/;"	l
 yy_26_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_26_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_26_Greek	procsrc/amath.s	/^yy_26_Greek:$/;"	l
 yy_26_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_26_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_26_Op	procsrc/amath.s	/^yy_26_Op:$/;"	l
 yy_27_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_27_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_27_Greek	procsrc/amath.s	/^yy_27_Greek:$/;"	l
 yy_27_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_27_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_27_Op	procsrc/amath.s	/^yy_27_Op:$/;"	l
 yy_28_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_28_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_28_Greek	procsrc/amath.s	/^yy_28_Greek:$/;"	l
 yy_28_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_28_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_28_Op	procsrc/amath.s	/^yy_28_Op:$/;"	l
 yy_29_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_29_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_29_Greek	procsrc/amath.s	/^yy_29_Greek:$/;"	l
 yy_29_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_29_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_29_Op	procsrc/amath.s	/^yy_29_Op:$/;"	l
 yy_2_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Binary	procsrc/amath.s	/^yy_2_Binary:$/;"	l
 yy_2_Expr	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Expr(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Expr	procsrc/amath.s	/^yy_2_Expr:$/;"	l
 yy_2_ExprG	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_ExprG(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_ExprG	procsrc/amath.s	/^yy_2_ExprG:$/;"	l
 yy_2_ExprM	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_ExprM(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_ExprM	procsrc/amath.s	/^yy_2_ExprM:$/;"	l
 yy_2_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Greek	procsrc/amath.s	/^yy_2_Greek:$/;"	l
 yy_2_Int	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Int(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Int	procsrc/amath.s	/^yy_2_Int:$/;"	l
 yy_2_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Left	procsrc/amath.s	/^yy_2_Left:$/;"	l
 yy_2_Matrix	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Matrix(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Matrix	procsrc/amath.s	/^yy_2_Matrix:$/;"	l
 yy_2_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Op	procsrc/amath.s	/^yy_2_Op:$/;"	l
 yy_2_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Right	procsrc/amath.s	/^yy_2_Right:$/;"	l
 yy_2_Row	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Row(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Row	procsrc/amath.s	/^yy_2_Row:$/;"	l
 yy_2_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Simp	procsrc/amath.s	/^yy_2_Simp:$/;"	l
 yy_2_Start	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Start(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Start	procsrc/amath.s	/^yy_2_Start:$/;"	l
 yy_2_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_2_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_2_Unary	procsrc/amath.s	/^yy_2_Unary:$/;"	l
 yy_30_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_30_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_30_Greek	procsrc/amath.s	/^yy_30_Greek:$/;"	l
 yy_30_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_30_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_30_Op	procsrc/amath.s	/^yy_30_Op:$/;"	l
 yy_31_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_31_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_31_Greek	procsrc/amath.s	/^yy_31_Greek:$/;"	l
 yy_31_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_31_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_31_Op	procsrc/amath.s	/^yy_31_Op:$/;"	l
 yy_32_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_32_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_32_Greek	procsrc/amath.s	/^yy_32_Greek:$/;"	l
 yy_32_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_32_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_32_Op	procsrc/amath.s	/^yy_32_Op:$/;"	l
 yy_33_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_33_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_33_Greek	procsrc/amath.s	/^yy_33_Greek:$/;"	l
 yy_33_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_33_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_33_Op	procsrc/amath.s	/^yy_33_Op:$/;"	l
 yy_34_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_34_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_34_Greek	procsrc/amath.s	/^yy_34_Greek:$/;"	l
 yy_34_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_34_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_34_Op	procsrc/amath.s	/^yy_34_Op:$/;"	l
 yy_35_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_35_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_35_Greek	procsrc/amath.s	/^yy_35_Greek:$/;"	l
 yy_35_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_35_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_35_Op	procsrc/amath.s	/^yy_35_Op:$/;"	l
 yy_36_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_36_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_36_Greek	procsrc/amath.s	/^yy_36_Greek:$/;"	l
 yy_36_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_36_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_36_Op	procsrc/amath.s	/^yy_36_Op:$/;"	l
 yy_37_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_37_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_37_Greek	procsrc/amath.s	/^yy_37_Greek:$/;"	l
 yy_37_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_37_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_37_Op	procsrc/amath.s	/^yy_37_Op:$/;"	l
 yy_38_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_38_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_38_Greek	procsrc/amath.s	/^yy_38_Greek:$/;"	l
 yy_38_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_38_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_38_Op	procsrc/amath.s	/^yy_38_Op:$/;"	l
 yy_39_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_39_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_39_Greek	procsrc/amath.s	/^yy_39_Greek:$/;"	l
 yy_39_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_39_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_39_Op	procsrc/amath.s	/^yy_39_Op:$/;"	l
 yy_3_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Binary	procsrc/amath.s	/^yy_3_Binary:$/;"	l
 yy_3_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Greek	procsrc/amath.s	/^yy_3_Greek:$/;"	l
 yy_3_Int	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Int(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Int	procsrc/amath.s	/^yy_3_Int:$/;"	l
 yy_3_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Left	procsrc/amath.s	/^yy_3_Left:$/;"	l
 yy_3_Matrix	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Matrix(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Matrix	procsrc/amath.s	/^yy_3_Matrix:$/;"	l
 yy_3_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Op	procsrc/amath.s	/^yy_3_Op:$/;"	l
 yy_3_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Right	procsrc/amath.s	/^yy_3_Right:$/;"	l
 yy_3_Row	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Row(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Row	procsrc/amath.s	/^yy_3_Row:$/;"	l
 yy_3_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Simp	procsrc/amath.s	/^yy_3_Simp:$/;"	l
 yy_3_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_3_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_3_Unary	procsrc/amath.s	/^yy_3_Unary:$/;"	l
 yy_40_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_40_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_40_Op	procsrc/amath.s	/^yy_40_Op:$/;"	l
 yy_41_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_41_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_41_Op	procsrc/amath.s	/^yy_41_Op:$/;"	l
 yy_42_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_42_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_42_Op	procsrc/amath.s	/^yy_42_Op:$/;"	l
 yy_43_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_43_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_43_Op	procsrc/amath.s	/^yy_43_Op:$/;"	l
 yy_44_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_44_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_44_Op	procsrc/amath.s	/^yy_44_Op:$/;"	l
 yy_45_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_45_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_45_Op	procsrc/amath.s	/^yy_45_Op:$/;"	l
 yy_46_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_46_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_46_Op	procsrc/amath.s	/^yy_46_Op:$/;"	l
 yy_47_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_47_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_47_Op	procsrc/amath.s	/^yy_47_Op:$/;"	l
 yy_48_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_48_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_48_Op	procsrc/amath.s	/^yy_48_Op:$/;"	l
 yy_49_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_49_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_49_Op	procsrc/amath.s	/^yy_49_Op:$/;"	l
 yy_4_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Binary	procsrc/amath.s	/^yy_4_Binary:$/;"	l
 yy_4_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Greek	procsrc/amath.s	/^yy_4_Greek:$/;"	l
 yy_4_Int	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Int(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Int	procsrc/amath.s	/^yy_4_Int:$/;"	l
 yy_4_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Left	procsrc/amath.s	/^yy_4_Left:$/;"	l
 yy_4_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Op	procsrc/amath.s	/^yy_4_Op:$/;"	l
 yy_4_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Right	procsrc/amath.s	/^yy_4_Right:$/;"	l
 yy_4_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Simp	procsrc/amath.s	/^yy_4_Simp:$/;"	l
 yy_4_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_4_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_4_Unary	procsrc/amath.s	/^yy_4_Unary:$/;"	l
 yy_50_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_50_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_50_Op	procsrc/amath.s	/^yy_50_Op:$/;"	l
 yy_51_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_51_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_51_Op	procsrc/amath.s	/^yy_51_Op:$/;"	l
 yy_52_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_52_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_52_Op	procsrc/amath.s	/^yy_52_Op:$/;"	l
 yy_53_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_53_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_53_Op	procsrc/amath.s	/^yy_53_Op:$/;"	l
 yy_54_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_54_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_54_Op	procsrc/amath.s	/^yy_54_Op:$/;"	l
 yy_55_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_55_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_55_Op	procsrc/amath.s	/^yy_55_Op:$/;"	l
 yy_56_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_56_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_56_Op	procsrc/amath.s	/^yy_56_Op:$/;"	l
 yy_57_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_57_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_57_Op	procsrc/amath.s	/^yy_57_Op:$/;"	l
 yy_58_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_58_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_58_Op	procsrc/amath.s	/^yy_58_Op:$/;"	l
 yy_59_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_59_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_59_Op	procsrc/amath.s	/^yy_59_Op:$/;"	l
 yy_5_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Binary	procsrc/amath.s	/^yy_5_Binary:$/;"	l
 yy_5_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Greek	procsrc/amath.s	/^yy_5_Greek:$/;"	l
 yy_5_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Left	procsrc/amath.s	/^yy_5_Left:$/;"	l
 yy_5_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Op	procsrc/amath.s	/^yy_5_Op:$/;"	l
 yy_5_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Right	procsrc/amath.s	/^yy_5_Right:$/;"	l
 yy_5_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Simp	procsrc/amath.s	/^yy_5_Simp:$/;"	l
 yy_5_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_5_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_5_Unary	procsrc/amath.s	/^yy_5_Unary:$/;"	l
 yy_60_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_60_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_60_Op	procsrc/amath.s	/^yy_60_Op:$/;"	l
 yy_61_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_61_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_61_Op	procsrc/amath.s	/^yy_61_Op:$/;"	l
 yy_62_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_62_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_62_Op	procsrc/amath.s	/^yy_62_Op:$/;"	l
 yy_63_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_63_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_63_Op	procsrc/amath.s	/^yy_63_Op:$/;"	l
 yy_64_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_64_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_64_Op	procsrc/amath.s	/^yy_64_Op:$/;"	l
 yy_65_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_65_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_65_Op	procsrc/amath.s	/^yy_65_Op:$/;"	l
 yy_66_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_66_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_66_Op	procsrc/amath.s	/^yy_66_Op:$/;"	l
 yy_67_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_67_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_67_Op	procsrc/amath.s	/^yy_67_Op:$/;"	l
 yy_68_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_68_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_68_Op	procsrc/amath.s	/^yy_68_Op:$/;"	l
 yy_69_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_69_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_69_Op	procsrc/amath.s	/^yy_69_Op:$/;"	l
 yy_6_Binary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Binary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Binary	procsrc/amath.s	/^yy_6_Binary:$/;"	l
 yy_6_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Greek	procsrc/amath.s	/^yy_6_Greek:$/;"	l
 yy_6_Left	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Left(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Left	procsrc/amath.s	/^yy_6_Left:$/;"	l
 yy_6_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Op	procsrc/amath.s	/^yy_6_Op:$/;"	l
 yy_6_Right	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Right(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Right	procsrc/amath.s	/^yy_6_Right:$/;"	l
 yy_6_Simp	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Simp(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Simp	procsrc/amath.s	/^yy_6_Simp:$/;"	l
 yy_6_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_6_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_6_Unary	procsrc/amath.s	/^yy_6_Unary:$/;"	l
 yy_70_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_70_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_70_Op	procsrc/amath.s	/^yy_70_Op:$/;"	l
 yy_71_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_71_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_71_Op	procsrc/amath.s	/^yy_71_Op:$/;"	l
 yy_72_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_72_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_72_Op	procsrc/amath.s	/^yy_72_Op:$/;"	l
 yy_73_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_73_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_73_Op	procsrc/amath.s	/^yy_73_Op:$/;"	l
 yy_74_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_74_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_74_Op	procsrc/amath.s	/^yy_74_Op:$/;"	l
 yy_75_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_75_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_75_Op	procsrc/amath.s	/^yy_75_Op:$/;"	l
 yy_76_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_76_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_76_Op	procsrc/amath.s	/^yy_76_Op:$/;"	l
 yy_77_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_77_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_77_Op	procsrc/amath.s	/^yy_77_Op:$/;"	l
 yy_78_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_78_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_78_Op	procsrc/amath.s	/^yy_78_Op:$/;"	l
 yy_79_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_79_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_79_Op	procsrc/amath.s	/^yy_79_Op:$/;"	l
 yy_7_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_7_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_7_Greek	procsrc/amath.s	/^yy_7_Greek:$/;"	l
 yy_7_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_7_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_7_Op	procsrc/amath.s	/^yy_7_Op:$/;"	l
 yy_7_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_7_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_7_Unary	procsrc/amath.s	/^yy_7_Unary:$/;"	l
 yy_80_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_80_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_80_Op	procsrc/amath.s	/^yy_80_Op:$/;"	l
 yy_81_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_81_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_81_Op	procsrc/amath.s	/^yy_81_Op:$/;"	l
 yy_82_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_82_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_82_Op	procsrc/amath.s	/^yy_82_Op:$/;"	l
 yy_83_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_83_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_83_Op	procsrc/amath.s	/^yy_83_Op:$/;"	l
 yy_84_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_84_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_84_Op	procsrc/amath.s	/^yy_84_Op:$/;"	l
 yy_85_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_85_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_85_Op	procsrc/amath.s	/^yy_85_Op:$/;"	l
 yy_86_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_86_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_86_Op	procsrc/amath.s	/^yy_86_Op:$/;"	l
 yy_87_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_87_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_87_Op	procsrc/amath.s	/^yy_87_Op:$/;"	l
 yy_88_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_88_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_88_Op	procsrc/amath.s	/^yy_88_Op:$/;"	l
 yy_89_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_89_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_89_Op	procsrc/amath.s	/^yy_89_Op:$/;"	l
 yy_8_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_8_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_8_Greek	procsrc/amath.s	/^yy_8_Greek:$/;"	l
 yy_8_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_8_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_8_Op	procsrc/amath.s	/^yy_8_Op:$/;"	l
 yy_8_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_8_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_8_Unary	procsrc/amath.s	/^yy_8_Unary:$/;"	l
 yy_90_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_90_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_90_Op	procsrc/amath.s	/^yy_90_Op:$/;"	l
 yy_91_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_91_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_91_Op	procsrc/amath.s	/^yy_91_Op:$/;"	l
 yy_92_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_92_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_92_Op	procsrc/amath.s	/^yy_92_Op:$/;"	l
 yy_93_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_93_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_93_Op	procsrc/amath.s	/^yy_93_Op:$/;"	l
 yy_94_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_94_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_94_Op	procsrc/amath.s	/^yy_94_Op:$/;"	l
 yy_95_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_95_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_95_Op	procsrc/amath.s	/^yy_95_Op:$/;"	l
 yy_96_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_96_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_96_Op	procsrc/amath.s	/^yy_96_Op:$/;"	l
 yy_97_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_97_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_97_Op	procsrc/amath.s	/^yy_97_Op:$/;"	l
 yy_98_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_98_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_98_Op	procsrc/amath.s	/^yy_98_Op:$/;"	l
 yy_99_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_99_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_99_Op	procsrc/amath.s	/^yy_99_Op:$/;"	l
 yy_9_Greek	procsrc/amath.leg.c	/^YY_ACTION(void) yy_9_Greek(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_9_Greek	procsrc/amath.s	/^yy_9_Greek:$/;"	l
 yy_9_Op	procsrc/amath.leg.c	/^YY_ACTION(void) yy_9_Op(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_9_Op	procsrc/amath.s	/^yy_9_Op:$/;"	l
 yy_9_Unary	procsrc/amath.leg.c	/^YY_ACTION(void) yy_9_Unary(yycontext *yy, char *yytext, int yyleng)$/;"	f
+yy_9_Unary	procsrc/amath.s	/^yy_9_Unary:$/;"	l
 yy_Binary	procsrc/amath.leg.c	/^YY_RULE(int) yy_Binary(yycontext *yy)$/;"	f
+yy_Binary	procsrc/amath.s	/^yy_Binary:$/;"	l
 yy_Color	procsrc/amath.leg.c	/^YY_RULE(int) yy_Color(yycontext *yy)$/;"	f
+yy_Color	procsrc/amath.s	/^yy_Color:$/;"	l
 yy_E	procsrc/amath.leg.c	/^YY_RULE(int) yy_E(yycontext *yy)$/;"	f
+yy_E	procsrc/amath.s	/^yy_E:$/;"	l
 yy_EOF	procsrc/amath.leg.c	/^YY_RULE(int) yy_EOF(yycontext *yy)$/;"	f
+yy_EOF	procsrc/amath.s	/^yy_EOF:$/;"	l
 yy_Expr	procsrc/amath.leg.c	/^YY_RULE(int) yy_Expr(yycontext *yy)$/;"	f
+yy_Expr	procsrc/amath.s	/^yy_Expr:$/;"	l
 yy_ExprG	procsrc/amath.leg.c	/^YY_RULE(int) yy_ExprG(yycontext *yy)$/;"	f
+yy_ExprG	procsrc/amath.s	/^yy_ExprG:$/;"	l
 yy_ExprM	procsrc/amath.leg.c	/^YY_RULE(int) yy_ExprM(yycontext *yy)$/;"	f
+yy_ExprM	procsrc/amath.s	/^yy_ExprM:$/;"	l
 yy_Greek	procsrc/amath.leg.c	/^YY_RULE(int) yy_Greek(yycontext *yy)$/;"	f
+yy_Greek	procsrc/amath.s	/^yy_Greek:$/;"	l
 yy_Int	procsrc/amath.leg.c	/^YY_RULE(int) yy_Int(yycontext *yy)$/;"	f
+yy_Int	procsrc/amath.s	/^yy_Int:$/;"	l
 yy_IntG	procsrc/amath.leg.c	/^YY_RULE(int) yy_IntG(yycontext *yy)$/;"	f
+yy_IntG	procsrc/amath.s	/^yy_IntG:$/;"	l
 yy_IntM	procsrc/amath.leg.c	/^YY_RULE(int) yy_IntM(yycontext *yy)$/;"	f
+yy_IntM	procsrc/amath.s	/^yy_IntM:$/;"	l
 yy_Left	procsrc/amath.leg.c	/^YY_RULE(int) yy_Left(yycontext *yy)$/;"	f
+yy_Left	procsrc/amath.s	/^yy_Left:$/;"	l
 yy_Matrix	procsrc/amath.leg.c	/^YY_RULE(int) yy_Matrix(yycontext *yy)$/;"	f
+yy_Matrix	procsrc/amath.s	/^yy_Matrix:$/;"	l
 yy_Op	procsrc/amath.leg.c	/^YY_RULE(int) yy_Op(yycontext *yy)$/;"	f
+yy_Op	procsrc/amath.s	/^yy_Op:$/;"	l
 yy_Right	procsrc/amath.leg.c	/^YY_RULE(int) yy_Right(yycontext *yy)$/;"	f
+yy_Right	procsrc/amath.s	/^yy_Right:$/;"	l
 yy_Row	procsrc/amath.leg.c	/^YY_RULE(int) yy_Row(yycontext *yy)$/;"	f
+yy_Row	procsrc/amath.s	/^yy_Row:$/;"	l
 yy_SPECIAL	procsrc/amath.leg.c	/^YY_RULE(int) yy_SPECIAL(yycontext *yy)$/;"	f
+yy_SPECIAL	procsrc/amath.s	/^yy_SPECIAL:$/;"	l
 yy_STD	procsrc/amath.leg.c	/^YY_RULE(int) yy_STD(yycontext *yy)$/;"	f
+yy_STD	procsrc/amath.s	/^yy_STD:$/;"	l
 yy_Simp	procsrc/amath.leg.c	/^YY_RULE(int) yy_Simp(yycontext *yy)$/;"	f
+yy_Simp	procsrc/amath.s	/^yy_Simp:$/;"	l
 yy_Start	procsrc/amath.leg.c	/^YY_RULE(int) yy_Start(yycontext *yy)$/;"	f
+yy_Start	procsrc/amath.s	/^yy_Start:$/;"	l
 yy_Unary	procsrc/amath.leg.c	/^YY_RULE(int) yy_Unary(yycontext *yy)$/;"	f
+yy_Unary	procsrc/amath.s	/^yy_Unary:$/;"	l
 yy__	procsrc/amath.leg.c	/^YY_RULE(int) yy__(yycontext *yy)$/;"	f
+yy__	procsrc/amath.s	/^yy__:$/;"	l
 yyaction	procsrc/amath.leg.c	/^typedef void (*yyaction)(yycontext *yy, char *yytext, int yyleng);$/;"	t	file:
 yycontext	procsrc/amath.leg.c	/^typedef struct _yycontext yycontext;$/;"	t	typeref:struct:_yycontext	file:
 yyctx	procsrc/amath.leg.c	/^yycontext *yyctx= &_yyctx;$/;"	v
@@ -1217,9 +1506,15 @@ yyleng	procsrc/amath.leg.c	4601;"	d	file:
 yyleng	procsrc/amath.leg.c	4608;"	d	file:
 yyleng	procsrc/amath.leg.c	4611;"	d	file:
 yymatchChar	procsrc/amath.leg.c	/^YY_LOCAL(int) yymatchChar(yycontext *yy, int c)$/;"	f
+yymatchChar	procsrc/amath.s	/^yymatchChar:$/;"	l
 yymatchClass	procsrc/amath.leg.c	/^YY_LOCAL(int) yymatchClass(yycontext *yy, unsigned char *bits)$/;"	f
+yymatchClass	procsrc/amath.s	/^yymatchClass:$/;"	l
 yymatchDot	procsrc/amath.leg.c	/^YY_LOCAL(int) yymatchDot(yycontext *yy)$/;"	f
+yymatchDot	procsrc/amath.s	/^yymatchDot:$/;"	l
 yymatchString	procsrc/amath.leg.c	/^YY_LOCAL(int) yymatchString(yycontext *yy, const char *s)$/;"	f
+yymatchString	procsrc/amath.s	/^yymatchString:$/;"	l
+yyparse	procsrc/amath.s	/^yyparse:$/;"	l
+yyparsefrom	procsrc/amath.s	/^yyparsefrom:$/;"	l
 yypos	procsrc/amath.leg.c	1003;"	d	file:
 yypos	procsrc/amath.leg.c	1009;"	d	file:
 yypos	procsrc/amath.leg.c	1017;"	d	file:
@@ -1669,6 +1964,8 @@ yypos	procsrc/amath.leg.c	995;"	d	file:
 yyprintf	procsrc/amath.leg.c	66;"	d	file:
 yyprintf	procsrc/amath.leg.c	68;"	d	file:
 yyrefill	procsrc/amath.leg.c	/^YY_LOCAL(int) yyrefill(yycontext *yy)$/;"	f
+yyrefill	procsrc/amath.s	/^yyrefill:$/;"	l
+yyrelease	procsrc/amath.s	/^yyrelease:$/;"	l
 yyrule	procsrc/amath.leg.c	/^typedef int (*yyrule)(yycontext *yy);$/;"	t	file:
 yytext	procsrc/amath.leg.c	3682;"	d	file:
 yytext	procsrc/amath.leg.c	3685;"	d	file:

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# $1: directory
+
 pkill -f mysmdv
 echo hi
 ./smdv/mysmdv --start-websocket-server &
@@ -8,5 +10,5 @@ echo bye
 ./smdv/mysmdv --start-server --port 8081 &
 # sleep 5
 echo hey
-surf -N -T http://localhost:8081 &
-./watch/watch.py & 
+surf -z 2 -N -T http://localhost:8081 &
+./watch/watch.py ./watch & 
