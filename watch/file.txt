@@ -1,16 +1,3 @@
-hello. this is a thing. you see?
-obviously you see.ee
-e
-hi?
-still there?
-good.
+hello.
 
-`a^2+b^2=c^2`
-math.
-ma
-math.
-math.
-
-ok ok ok.
-if you type really slowly it's not too bad...
-hello?
+`x=(-b+- sqrt(b^2-4ac))/(2a)`

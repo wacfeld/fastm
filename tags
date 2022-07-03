@@ -32,6 +32,8 @@ PYCLIENTS	smdv/thissmdv.py	/^PYCLIENTS = set()  # pyclients update the html body
 RCURLY	procsrc/amath.leg.c	13;"	d	file:
 ResolveExecutable	old/imd.vim	/^function! s:ResolveExecutable(...) abort$/;"	f
 SMDV_DEFAULT_ARGS	smdv/thissmdv.py	/^SMDV_DEFAULT_ARGS = os.environ.get("SMDV_DEFAULT_ARGS", "")  # default smdv arguments$/;"	v
+ThreadedTCPRequestHandler	channel/2sympy.py	/^class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):$/;"	c
+ThreadedTCPServer	channel/2sympy.py	/^class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):$/;"	c
 TraverseAncestorDirSearch	old/imd.vim	/^function! s:TraverseAncestorDirSearch(rootDir) abort$/;"	f
 UNARY_FN	procsrc/util.c	98;"	d	file:
 UTIL_H	procsrc/util.h	2;"	d
@@ -396,6 +398,7 @@ g:instant_markdown_open_to_the_world	old/imd.vim	/^    let g:instant_markdown_op
 g:instant_markdown_port	old/imd.vim	/^    let g:instant_markdown_port = 8090$/;"	v
 g:instant_markdown_python	old/imd.vim	/^    let g:instant_markdown_python = 0$/;"	v
 g:instant_markdown_slow	old/imd.vim	/^    let g:instant_markdown_slow = 0$/;"	v
+handle	channel/2sympy.py	/^    def handle(self):$/;"	m	class:ThreadedTCPRequestHandler
 handle_message	smdv/thissmdv.py	/^async def handle_message(client: websockets.WebSocketServerProtocol, message: str):$/;"	f
 handler	watch/watch.py	/^handler = EventHandler()$/;"	v
 hello_world	old/flask/server.py	/^def hello_world():$/;"	f
@@ -650,6 +653,8 @@ send_delete_request_to_server	smdv/thissmdv.py	/^def send_delete_request_to_serv
 send_message_from_stdin	smdv/thissmdv.py	/^def send_message_from_stdin():$/;"	f
 send_message_to_all_js_clients	smdv/thissmdv.py	/^async def send_message_to_all_js_clients():$/;"	f
 serve_client	smdv/thissmdv.py	/^async def serve_client(client: websockets.WebSocketServerProtocol, path: str):$/;"	f
+server	channel/2sympy.py	/^    server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)$/;"	v	class:ThreadedTCPServer
+server_thread	channel/2sympy.py	/^    server_thread = threading.Thread(target=server.serve_forever)$/;"	v	class:ThreadedTCPServer
 si	procsrc/amath.leg.c	3257;"	d	file:
 si	procsrc/amath.leg.c	3272;"	d	file:
 si	procsrc/amath.leg.c	3279;"	d	file:
@@ -705,8 +710,10 @@ tagstart	procsrc/main.c	/^const char tagstart[] = "<math><mstyle mathvariant=\\"
 tagstartlen	procsrc/main.c	/^const int tagstartlen = sizeof(tagstart) - 1;$/;"	v
 temperedRefresh	old/imd.vim	/^fu! s:temperedRefresh()$/;"	f
 text	procsrc/util.h	/^	char *text;$/;"	m	struct:node
+thesocket	channel/2sympy.py	/^thesocket = None$/;"	v
 txt2body	smdv/thissmdv.py	/^def txt2body(content: str) -> str:$/;"	f
 type	procsrc/util.h	/^	enum node_t type;$/;"	m	struct:node	typeref:enum:node::node_t
+typed	channel/2sympy.py	/^        typed = sys.stdin.readline()$/;"	v	class:ThreadedTCPServer
 ul	procsrc/util.s	/^ul:$/;"	l
 unregister_client	smdv/thissmdv.py	/^async def unregister_client(client: websockets.WebSocketServerProtocol):$/;"	f
 update_filename	smdv/thissmdv.py	/^def update_filename():$/;"	f
