@@ -1,4 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
+
+# channel{{{1
 #
 # Server that will accept connections from a Vim channel.
 # Run this server and then in Vim you can open the channel:
@@ -23,6 +25,14 @@ import socket
 import sys
 import threading
 
+from sympy import *
+
+from graphics import *
+
+# from tkinter import *
+
+import time, os, subprocess, sys, tempfile, shutil
+
 try:
     # Python 3
     import socketserver
@@ -38,6 +48,11 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         print("=== socket opened ===")
         global thesocket
         thesocket = self.request
+
+        # win = GraphWin("win", 500, 500) # init window
+        vieweropen = False
+        pid = None
+
         while True:
             try:
                 data = self.request.recv(4096).decode('utf-8')
@@ -50,6 +65,33 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
             print("received: {0}".format(data))
             try:
                 decoded = json.loads(data)
+                exp = '$$' + decoded[1] + '$$'
+
+                # convert latex into png
+                # preview(exp, output='png', viewer='imvr')
+                preview(exp, filename='output.png', output='png', viewer='file')
+                if not vieweropen:
+                    vieweropen = True
+                    os.system('imvr output.png &')
+
+                    pids = (int(x) for  x in exshell('pidof imvr').split(' '))
+                    pid = max(pids)
+                else:
+                    os.system('imv-msg ' + str(pid) + ' close')
+                    os.system('imv-msg ' + str(pid) + ' open output.png')
+
+                # display
+                # img = Image(Point(250, 250), 'output.png')
+                # img.draw(win)
+                
+                # img = PhotoImage(file='output.png')
+                # Label(
+                #     ws,
+                #     image=img
+                # ).pack()
+                # # ws.mainloop()
+                # ws.update()
+                
             except ValueError:
                 print("json decoding failed")
                 decoded = [-1, '']
@@ -76,7 +118,36 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     pass
 
+# filesystem{{{1
+
+# get output of shell command
+def exshell(comm):
+    res = subprocess.run(comm.split(' '), stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
+    return res
+
+def formatdir(name): # adds '/' to end of dir path if necessary
+    if name.endswith('/'):
+        return name
+    else:
+        return name + '/'
+
+# main{{{1
 if __name__ == "__main__":
+    # # create tkinter window
+    # ws = Tk()
+    # ws.mainloop()
+
+    # get name of file
+    srcpath = sys.argv[1]
+
+    # setup temporary directory
+    tmpdir = formatdir("/dev/shm")
+    if not os.path.exists(tmpdir):
+        tmpdir = formatdir("/tmp")
+    td = tempfile.TemporaryDirectory(dir=tmpdir)
+    os.chdir(td.name)
+
+    # setup channel
     HOST, PORT = "localhost", 8765
 
     server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)

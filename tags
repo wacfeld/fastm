@@ -6,15 +6,25 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ARGS	smdv/thissmdv.py	/^ARGS = ""  # the smdv command line arguments$/;"	v
 BACKMESSAGES	smdv/thissmdv.py	/^BACKMESSAGES = collections.deque()  # for communication between js and py$/;"	v
+BAD_OPTION	channel/graphics.py	/^BAD_OPTION = "Illegal option value"$/;"	v
+Circle	channel/graphics.py	/^class Circle(Oval):$/;"	c
+DEAD_THREAD	channel/graphics.py	/^DEAD_THREAD = "Graphics thread quit unexpectedly"$/;"	v
+DEFAULT_CONFIG	channel/graphics.py	/^DEFAULT_CONFIG = {"fill":"",$/;"	v
 EVENT_LOOP	smdv/thissmdv.py	/^EVENT_LOOP = asyncio.get_event_loop()$/;"	v
+Entry	channel/graphics.py	/^class Entry(GraphicsObject):$/;"	c
 EventHandler	watch/watch.py	/^class EventHandler(pyinotify.ProcessEvent):$/;"	c
 FORWARDMESSAGES	smdv/thissmdv.py	/^FORWARDMESSAGES = collections.deque()  # for communication between js and py$/;"	v
 GetExecPath	old/imd.vim	/^function! s:GetExecPath(...) abort$/;"	f
+GraphWin	channel/graphics.py	/^class GraphWin(tk.Canvas):$/;"	c
+GraphicsError	channel/graphics.py	/^class GraphicsError(Exception):$/;"	c
+GraphicsObject	channel/graphics.py	/^class GraphicsObject:$/;"	c
+Image	channel/graphics.py	/^class Image(GraphicsObject):$/;"	c
 InstantMarkdownDPath	old/imd.vim	/^command! InstantMarkdownDPath call s:instant_markdown_d_path()$/;"	c
 InstantMarkdownPreview	old/imd.vim	/^command! -buffer InstantMarkdownPreview call s:previewMarkdown()$/;"	c
 InstantMarkdownStop	old/imd.vim	/^command! -buffer InstantMarkdownStop call s:cleanUp()$/;"	c
 JSCLIENTS	smdv/thissmdv.py	/^JSCLIENTS = set()  # jsclients wait for an update from the pyclient$/;"	v
 LCURLY	procsrc/amath.leg.c	12;"	d	file:
+Line	channel/graphics.py	/^class Line(_BBox):$/;"	c
 MESSAGE	smdv/thissmdv.py	/^MESSAGE = {}$/;"	v
 MK_BIN_FN	procsrc/util.c	133;"	d	file:
 MK_BIN_SP_FN	procsrc/util.c	153;"	d	file:
@@ -28,14 +38,24 @@ NODE_SIMPLE	procsrc/util.h	/^	NODE_SIMPLE,$/;"	e	enum:node_t
 NODE_TEXT	procsrc/util.h	/^	NODE_TEXT,$/;"	e	enum:node_t
 NODE_UNDEROVER	procsrc/util.h	/^	NODE_UNDEROVER,$/;"	e	enum:node_t
 NODE_UNKNOWN	procsrc/util.h	/^	NODE_UNKNOWN$/;"	e	enum:node_t
+OBJ_ALREADY_DRAWN	channel/graphics.py	/^OBJ_ALREADY_DRAWN = "Object currently drawn"$/;"	v
+Oval	channel/graphics.py	/^class Oval(_BBox):$/;"	c
 PYCLIENTS	smdv/thissmdv.py	/^PYCLIENTS = set()  # pyclients update the html body of the jsclient$/;"	v
+Point	channel/graphics.py	/^class Point(GraphicsObject):$/;"	c
+Polygon	channel/graphics.py	/^class Polygon(GraphicsObject):$/;"	c
 RCURLY	procsrc/amath.leg.c	13;"	d	file:
+Rectangle	channel/graphics.py	/^class Rectangle(_BBox):$/;"	c
 ResolveExecutable	old/imd.vim	/^function! s:ResolveExecutable(...) abort$/;"	f
 SMDV_DEFAULT_ARGS	smdv/thissmdv.py	/^SMDV_DEFAULT_ARGS = os.environ.get("SMDV_DEFAULT_ARGS", "")  # default smdv arguments$/;"	v
+Text	channel/graphics.py	/^class Text(GraphicsObject):$/;"	c
 ThreadedTCPRequestHandler	channel/2sympy.py	/^class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):$/;"	c
+ThreadedTCPRequestHandler	channel/fastm.py	/^class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):$/;"	c
 ThreadedTCPServer	channel/2sympy.py	/^class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):$/;"	c
+ThreadedTCPServer	channel/fastm.py	/^class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):$/;"	c
+Transform	channel/graphics.py	/^class Transform:$/;"	c
 TraverseAncestorDirSearch	old/imd.vim	/^function! s:TraverseAncestorDirSearch(rootDir) abort$/;"	f
 UNARY_FN	procsrc/util.c	98;"	d	file:
+UNSUPPORTED_METHOD	channel/graphics.py	/^UNSUPPORTED_METHOD = "Object doesn't support operation"$/;"	v
 UTIL_H	procsrc/util.h	2;"	d
 WEBSOCKETS_SERVER	smdv/thissmdv.py	/^WEBSOCKETS_SERVER = None  # websockets server$/;"	v
 YYACCEPT	procsrc/amath.leg.c	295;"	d	file:
@@ -73,6 +93,7 @@ YY_PARSE	procsrc/amath.leg.c	48;"	d	file:
 YY_REALLOC	procsrc/amath.leg.c	33;"	d	file:
 YY_RULE	procsrc/amath.leg.c	45;"	d	file:
 YY_STACK_SIZE	procsrc/amath.leg.c	74;"	d	file:
+_BBox	channel/graphics.py	/^class _BBox(GraphicsObject):$/;"	c
 __	procsrc/amath.leg.c	/^  YYSTYPE   __;$/;"	m	struct:_yycontext	file:
 __	procsrc/amath.leg.c	1008;"	d	file:
 __	procsrc/amath.leg.c	1022;"	d	file:
@@ -298,12 +319,35 @@ __	procsrc/amath.leg.c	966;"	d	file:
 __	procsrc/amath.leg.c	980;"	d	file:
 __	procsrc/amath.leg.c	994;"	d	file:
 __author__	smdv/thissmdv.py	/^__author__ = "Floris Laporte"$/;"	v
+__autoflush	channel/graphics.py	/^    def __autoflush(self):$/;"	m	class:GraphWin	file:
 __begin	procsrc/amath.leg.c	/^  int       __begin;$/;"	m	struct:_yycontext	file:
 __buf	procsrc/amath.leg.c	/^  char     *__buf;$/;"	m	struct:_yycontext	file:
 __buflen	procsrc/amath.leg.c	/^  int       __buflen;$/;"	m	struct:_yycontext	file:
+__checkOpen	channel/graphics.py	/^    def __checkOpen(self):$/;"	m	class:GraphWin	file:
 __end	procsrc/amath.leg.c	/^  int       __end;$/;"	m	struct:_yycontext	file:
+__init__	channel/graphics.py	/^    def __init__(self, *points):$/;"	m	class:Polygon
+__init__	channel/graphics.py	/^    def __init__(self, center, radius):$/;"	m	class:Circle
+__init__	channel/graphics.py	/^    def __init__(self, options):$/;"	m	class:GraphicsObject
+__init__	channel/graphics.py	/^    def __init__(self, p, *pixmap):$/;"	m	class:Image
+__init__	channel/graphics.py	/^    def __init__(self, p, text):$/;"	m	class:Text
+__init__	channel/graphics.py	/^    def __init__(self, p, width):$/;"	m	class:Entry
+__init__	channel/graphics.py	/^    def __init__(self, p1, p2):$/;"	m	class:Line
+__init__	channel/graphics.py	/^    def __init__(self, p1, p2):$/;"	m	class:Oval
+__init__	channel/graphics.py	/^    def __init__(self, p1, p2):$/;"	m	class:Rectangle
+__init__	channel/graphics.py	/^    def __init__(self, p1, p2, options=["outline","width","fill"]):$/;"	m	class:_BBox
+__init__	channel/graphics.py	/^    def __init__(self, title="Graphics Window",$/;"	m	class:GraphWin
+__init__	channel/graphics.py	/^    def __init__(self, w, h, xlow, ylow, xhigh, yhigh):$/;"	m	class:Transform
+__init__	channel/graphics.py	/^    def __init__(self, x, y):$/;"	m	class:Point
 __limit	procsrc/amath.leg.c	/^  int       __limit;$/;"	m	struct:_yycontext	file:
 __pos	procsrc/amath.leg.c	/^  int       __pos;$/;"	m	struct:_yycontext	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Circle	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Entry	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Line	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Oval	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Point	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Polygon	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Rectangle	file:
+__str__	channel/graphics.py	/^    def __str__(self):$/;"	m	class:Text	file:
 __text	procsrc/amath.leg.c	/^  char     *__text;$/;"	m	struct:_yycontext	file:
 __textlen	procsrc/amath.leg.c	/^  int       __textlen;$/;"	m	struct:_yycontext	file:
 __textmax	procsrc/amath.leg.c	/^  int       __textmax;$/;"	m	struct:_yycontext	file:
@@ -314,6 +358,26 @@ __val	procsrc/amath.leg.c	/^  YYSTYPE  *__val;$/;"	m	struct:_yycontext	file:
 __vals	procsrc/amath.leg.c	/^  YYSTYPE  *__vals;$/;"	m	struct:_yycontext	file:
 __valslen	procsrc/amath.leg.c	/^  int       __valslen;$/;"	m	struct:_yycontext	file:
 __version__	smdv/thissmdv.py	/^__version__ = "0.1.1"$/;"	v
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Entry
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:GraphicsObject
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Image
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Line
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Oval
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Point
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Polygon
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Rectangle
+_draw	channel/graphics.py	/^    def _draw(self, canvas, options):$/;"	m	class:Text
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:Entry
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:GraphicsObject
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:Image
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:Point
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:Polygon
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:Text
+_move	channel/graphics.py	/^    def _move(self, dx, dy):$/;"	m	class:_BBox
+_onClick	channel/graphics.py	/^    def _onClick(self, e):$/;"	m	class:GraphWin
+_reconfig	channel/graphics.py	/^    def _reconfig(self, option, setting):$/;"	m	class:GraphicsObject
+_root	channel/graphics.py	/^_root = tk.Tk()$/;"	v
+_setFontComponent	channel/graphics.py	/^    def _setFontComponent(self, which, value):$/;"	m	class:Entry
 _yycontext	procsrc/amath.leg.c	/^struct _yycontext {$/;"	s	file:
 _yyctx	procsrc/amath.leg.c	/^yycontext _yyctx= { 0, 0 };$/;"	v
 _yythunk	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	s	file:
@@ -345,6 +409,7 @@ cancel	procsrc/util.s	/^cancel:$/;"	l
 cell	procsrc/util.c	/^struct node *cell(struct node *s0)$/;"	f
 cell	procsrc/util.s	/^cell:$/;"	l
 change_current_working_directory	smdv/thissmdv.py	/^def change_current_working_directory(path: str) -> str:$/;"	f
+checkMouse	channel/graphics.py	/^    def checkMouse(self):$/;"	m	class:GraphWin
 ci	procsrc/amath.leg.c	3322;"	d	file:
 ci	procsrc/amath.leg.c	3335;"	d	file:
 ci	procsrc/amath.leg.c	3340;"	d	file:
@@ -359,10 +424,22 @@ ci	procsrc/amath.leg.c	3630;"	d	file:
 ci	procsrc/amath.leg.c	3643;"	d	file:
 classifiers	smdv/banishedsetup.py	/^    classifiers=[$/;"	v
 cleanUp	old/imd.vim	/^fu! s:cleanUp()$/;"	f
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Circle
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Entry
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Image
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Line
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Oval
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Point
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Polygon
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Rectangle
+clone	channel/graphics.py	/^    def clone(self):$/;"	m	class:Text
+close	channel/graphics.py	/^    def close(self):$/;"	m	class:GraphWin
+color_rgb	channel/graphics.py	/^def color_rgb(r,g,b):$/;"	f
 create_app	smdv/thissmdv.py	/^def create_app() -> flask.Flask:$/;"	f
 curs	watch/inscursor.py	/^curs = int(std[0])-1$/;"	v
 description	smdv/banishedsetup.py	/^    description=smdv.__doc__,$/;"	v
 dir2body	smdv/thissmdv.py	/^def dir2body(cwd: str) -> str:$/;"	f
+draw	channel/graphics.py	/^    def draw(self, graphwin):$/;"	m	class:GraphicsObject
 e	procsrc/amath.leg.c	3395;"	d	file:
 e	procsrc/amath.leg.c	3409;"	d	file:
 e	procsrc/amath.leg.c	3415;"	d	file:
@@ -382,9 +459,12 @@ e0	procsrc/amath.leg.c	3676;"	d	file:
 edit_in_neovim	smdv/thissmdv.py	/^def edit_in_neovim(filename: str = ""):$/;"	f
 encode	smdv/thissmdv.py	/^def encode(message: dict) -> dict:$/;"	f
 end	procsrc/amath.leg.c	/^typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;$/;"	m	struct:_yythunk	file:
+exshell	channel/fastm.py	/^def exshell(comm):$/;"	f
 exshell	smdv/thissmdv.py	/^def exshell(comm, inp):$/;"	f
+flush	channel/graphics.py	/^    def flush(self):$/;"	m	class:GraphWin
 font	procsrc/util.c	/^struct node *font(struct node *s0, const char *font)$/;"	f
 font	procsrc/util.s	/^font:$/;"	l
+formatdir	channel/fastm.py	/^def formatdir(name): # adds '\/' to end of dir path if necessary$/;"	f
 free_node	procsrc/util.c	/^void free_node(struct node *n)$/;"	f
 free_node	procsrc/util.s	/^free_node:$/;"	l
 g:instant_markdown_allow_external_content	old/imd.vim	/^    let g:instant_markdown_allow_external_content = 1$/;"	v
@@ -398,11 +478,32 @@ g:instant_markdown_open_to_the_world	old/imd.vim	/^    let g:instant_markdown_op
 g:instant_markdown_port	old/imd.vim	/^    let g:instant_markdown_port = 8090$/;"	v
 g:instant_markdown_python	old/imd.vim	/^    let g:instant_markdown_python = 0$/;"	v
 g:instant_markdown_slow	old/imd.vim	/^    let g:instant_markdown_slow = 0$/;"	v
+getAnchor	channel/graphics.py	/^    def getAnchor(self):$/;"	m	class:Entry
+getAnchor	channel/graphics.py	/^    def getAnchor(self):$/;"	m	class:Image
+getAnchor	channel/graphics.py	/^    def getAnchor(self):$/;"	m	class:Text
+getCenter	channel/graphics.py	/^    def getCenter(self):$/;"	m	class:_BBox
+getHeight	channel/graphics.py	/^    def getHeight(self):$/;"	m	class:GraphWin
+getHeight	channel/graphics.py	/^    def getHeight(self):$/;"	m	class:Image
+getMouse	channel/graphics.py	/^    def getMouse(self):$/;"	m	class:GraphWin
+getP1	channel/graphics.py	/^    def getP1(self): return self.p1.clone()$/;"	m	class:_BBox
+getP2	channel/graphics.py	/^    def getP2(self): return self.p2.clone()$/;"	m	class:_BBox
+getPixel	channel/graphics.py	/^    def getPixel(self, x, y):$/;"	m	class:Image
+getPoints	channel/graphics.py	/^    def getPoints(self):$/;"	m	class:Polygon
+getRadius	channel/graphics.py	/^    def getRadius(self):$/;"	m	class:Circle
+getText	channel/graphics.py	/^    def getText(self):$/;"	m	class:Entry
+getText	channel/graphics.py	/^    def getText(self):$/;"	m	class:Text
+getWidth	channel/graphics.py	/^    def getWidth(self):$/;"	m	class:GraphWin
+getWidth	channel/graphics.py	/^    def getWidth(self):$/;"	m	class:Image
+getX	channel/graphics.py	/^    def getX(self): return self.x$/;"	m	class:Point
+getY	channel/graphics.py	/^    def getY(self): return self.y$/;"	m	class:Point
 handle	channel/2sympy.py	/^    def handle(self):$/;"	m	class:ThreadedTCPRequestHandler
+handle	channel/fastm.py	/^    def handle(self):$/;"	m	class:ThreadedTCPRequestHandler
 handle_message	smdv/thissmdv.py	/^async def handle_message(client: websockets.WebSocketServerProtocol, message: str):$/;"	f
 handler	watch/watch.py	/^handler = EventHandler()$/;"	v
 hello_world	old/flask/server.py	/^def hello_world():$/;"	f
 http	old/node/test.js	/^var http = require('http');$/;"	v
+idCount	channel/graphics.py	/^    idCount = 0$/;"	v	class:Image
+imageCache	channel/graphics.py	/^    imageCache = {} # tk photoimages go here to avoid GC while drawn $/;"	v	class:Image
 index	smdv/thissmdv.py	/^    def index(path: str = "") -> str:$/;"	f	function:create_app
 initDict	old/imd.vim	/^function! s:initDict()$/;"	f
 inner	procsrc/util.c	/^void inner(struct node *n)$/;"	f
@@ -413,6 +514,8 @@ install_requires	smdv/banishedsetup.py	/^    install_requires=["flask", "websock
 instant	old/imd.vim	/^    aug instant-markdown$/;"	a
 instant_markdown_d_path	old/imd.vim	/^function! s:instant_markdown_d_path()$/;"	f
 ipynb2body	smdv/thissmdv.py	/^def ipynb2body(content: str) -> str:$/;"	f
+isClosed	channel/graphics.py	/^    def isClosed(self):$/;"	m	class:GraphWin
+isOpen	channel/graphics.py	/^    def isOpen(self):$/;"	m	class:GraphWin
 is_binary_file	smdv/thissmdv.py	/^def is_binary_file(filename: str) -> bool:$/;"	f
 killDaemon	old/imd.vim	/^function! s:killDaemon()"{{{$/;"	f
 kill_websocket_server	smdv/thissmdv.py	/^def kill_websocket_server() -> int:$/;"	f
@@ -482,6 +585,7 @@ mk_ter	procsrc/util.c	/^struct node *mk_ter(struct node *s0, struct node *s1, st
 mk_ter	procsrc/util.s	/^mk_ter:$/;"	l
 mk_ubrace	procsrc/util.s	/^mk_ubrace:$/;"	l
 mk_underover	procsrc/util.s	/^mk_underover:$/;"	l
+move	channel/graphics.py	/^    def move(self, dx, dy):$/;"	m	class:GraphicsObject
 msqrt	procsrc/util.s	/^msqrt:$/;"	l
 mtext	procsrc/util.s	/^mtext:$/;"	l
 myBufNr	old/imd.vim	/^fu! s:myBufNr()$/;"	f
@@ -494,6 +598,8 @@ number_of_connected_jsclients	smdv/thissmdv.py	/^def number_of_connected_jsclien
 open_browser	smdv/thissmdv.py	/^def open_browser():$/;"	f
 parse_args	smdv/thissmdv.py	/^def parse_args(args: tuple, **kwargs) -> argparse.Namespace:$/;"	f
 peg_data	procsrc/util.h	/^struct peg_data {$/;"	s
+plot	channel/graphics.py	/^    def plot(self, x, y, color="black"):$/;"	m	class:GraphWin
+plotPixel	channel/graphics.py	/^    def plotPixel(self, x, y, color="black"):$/;"	m	class:GraphWin
 popBuffer	old/imd.vim	/^function! s:popBuffer(bufnr)$/;"	f
 popMarkdown	old/imd.vim	/^fu! s:popMarkdown()$/;"	f
 previewMarkdown	old/imd.vim	/^fu! s:previewMarkdown()$/;"	f
@@ -501,6 +607,8 @@ print_message	smdv/thissmdv.py	/^def print_message(message: dict, **kwargs):$/;"
 process_IN_CREATE	watch/watch.py	/^  def process_IN_CREATE(self, event):$/;"	m	class:EventHandler
 process_IN_DELETE	watch/watch.py	/^  def process_IN_DELETE(self, event):$/;"	m	class:EventHandler
 process_IN_MODIFY	watch/watch.py	/^  def process_IN_MODIFY(self, event):$/;"	m	class:EventHandler
+promptClose	channel/graphics.py	/^    def promptClose(self, x, y=None):$/;"	m	class:GraphWin
+promptMouse	channel/graphics.py	/^    def promptMouse(self, x, y, prompt):$/;"	m	class:GraphWin
 pushBuffer	old/imd.vim	/^function! s:pushBuffer(bufnr)$/;"	f
 pushMarkdown	old/imd.vim	/^fu! s:pushMarkdown()$/;"	f
 py_modules	smdv/banishedsetup.py	/^    py_modules=["smdv"],$/;"	v
@@ -646,7 +754,9 @@ s2	procsrc/amath.leg.c	3574;"	d	file:
 s2	procsrc/amath.leg.c	3588;"	d	file:
 s:ROOT_DIR	old/imd.vim	/^let s:ROOT_DIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')"{{{$/;"	v
 s:shell_redirect	old/imd.vim	/^let s:shell_redirect = ' 1>> '. g:instant_markdown_logfile . ' 2>&1 '"}}}$/;"	v
+save	channel/graphics.py	/^    def save(self, filename):$/;"	m	class:Image
 saved_cwd	smdv/thissmdv.py	/^saved_cwd = os.getcwd()$/;"	v
+screen	channel/graphics.py	/^    def screen(self,x,y):$/;"	m	class:Transform
 send_as_pyclient	smdv/thissmdv.py	/^def send_as_pyclient(message: dict):$/;"	f
 send_as_pyclient_async	smdv/thissmdv.py	/^async def send_as_pyclient_async(message: dict):$/;"	f
 send_delete_request_to_server	smdv/thissmdv.py	/^def send_delete_request_to_server():$/;"	f
@@ -655,6 +765,25 @@ send_message_to_all_js_clients	smdv/thissmdv.py	/^async def send_message_to_all_
 serve_client	smdv/thissmdv.py	/^async def serve_client(client: websockets.WebSocketServerProtocol, path: str):$/;"	f
 server	channel/2sympy.py	/^    server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)$/;"	v	class:ThreadedTCPServer
 server_thread	channel/2sympy.py	/^    server_thread = threading.Thread(target=server.serve_forever)$/;"	v	class:ThreadedTCPServer
+setArrow	channel/graphics.py	/^    def setArrow(self, option):$/;"	m	class:Line
+setBackground	channel/graphics.py	/^    def setBackground(self, color):$/;"	m	class:GraphWin
+setCoords	channel/graphics.py	/^    def setCoords(self, x1, y1, x2, y2):$/;"	m	class:GraphWin
+setFace	channel/graphics.py	/^    def setFace(self, face):$/;"	m	class:Entry
+setFace	channel/graphics.py	/^    def setFace(self, face):$/;"	m	class:Text
+setFill	channel/graphics.py	/^    def setFill(self, color):$/;"	m	class:Entry
+setFill	channel/graphics.py	/^    def setFill(self, color):$/;"	m	class:GraphicsObject
+setMouseHandler	channel/graphics.py	/^    def setMouseHandler(self, func):$/;"	m	class:GraphWin
+setOutline	channel/graphics.py	/^    def setOutline(self, color):$/;"	m	class:GraphicsObject
+setPixel	channel/graphics.py	/^    def setPixel(self, x, y, color):$/;"	m	class:Image
+setSize	channel/graphics.py	/^    def setSize(self, size):$/;"	m	class:Entry
+setSize	channel/graphics.py	/^    def setSize(self, size):$/;"	m	class:Text
+setStyle	channel/graphics.py	/^    def setStyle(self, style):$/;"	m	class:Entry
+setStyle	channel/graphics.py	/^    def setStyle(self, style):$/;"	m	class:Text
+setText	channel/graphics.py	/^    def setText(self, t):$/;"	m	class:Entry
+setText	channel/graphics.py	/^    def setText(self,text):$/;"	m	class:Text
+setTextColor	channel/graphics.py	/^    def setTextColor(self, color):$/;"	m	class:Entry
+setTextColor	channel/graphics.py	/^    def setTextColor(self, color):$/;"	m	class:Text
+setWidth	channel/graphics.py	/^    def setWidth(self, width):$/;"	m	class:GraphicsObject
 si	procsrc/amath.leg.c	3257;"	d	file:
 si	procsrc/amath.leg.c	3272;"	d	file:
 si	procsrc/amath.leg.c	3279;"	d	file:
@@ -709,13 +838,20 @@ taglen	procsrc/main.c	/^const int taglen = tagstartlen + tagendlen;$/;"	v
 tagstart	procsrc/main.c	/^const char tagstart[] = "<math><mstyle mathvariant=\\"normal\\">";$/;"	v
 tagstartlen	procsrc/main.c	/^const int tagstartlen = sizeof(tagstart) - 1;$/;"	v
 temperedRefresh	old/imd.vim	/^fu! s:temperedRefresh()$/;"	f
+test	channel/graphics.py	/^def test():$/;"	f
 text	procsrc/util.h	/^	char *text;$/;"	m	struct:node
 thesocket	channel/2sympy.py	/^thesocket = None$/;"	v
+thesocket	channel/fastm.py	/^thesocket = None$/;"	v
+toScreen	channel/graphics.py	/^    def toScreen(self, x, y):$/;"	m	class:GraphWin
+toWorld	channel/graphics.py	/^    def toWorld(self, x, y):$/;"	m	class:GraphWin
 txt2body	smdv/thissmdv.py	/^def txt2body(content: str) -> str:$/;"	f
 type	procsrc/util.h	/^	enum node_t type;$/;"	m	struct:node	typeref:enum:node::node_t
 typed	channel/2sympy.py	/^        typed = sys.stdin.readline()$/;"	v	class:ThreadedTCPServer
 ul	procsrc/util.s	/^ul:$/;"	l
+undraw	channel/graphics.py	/^    def undraw(self):$/;"	m	class:GraphicsObject
+undraw	channel/graphics.py	/^    def undraw(self):$/;"	m	class:Image
 unregister_client	smdv/thissmdv.py	/^async def unregister_client(client: websockets.WebSocketServerProtocol):$/;"	f
+update	channel/graphics.py	/^def update():$/;"	f
 update_filename	smdv/thissmdv.py	/^def update_filename():$/;"	f
 url	smdv/banishedsetup.py	/^    url="https:\/\/github.com\/flaport\/smdv",$/;"	v
 validate_message	smdv/thissmdv.py	/^def validate_message(message: str):$/;"	f
@@ -726,6 +862,8 @@ watchpath	watch/watch.py	/^watchpath = sys.argv[1]$/;"	v
 wdd	watch/watch.py	/^wdd = wm.add_watch(sys.argv[1], mask, rec=True)$/;"	v
 winasync	old/imd.vim	/^function! s:winasync(cmd, stdinLines)"{{{$/;"	f
 wm	watch/watch.py	/^wm = pyinotify.WatchManager()  # Watch Manager$/;"	v
+world	channel/graphics.py	/^    def world(self,xs,ys):$/;"	m	class:Transform
+yUp	channel/graphics.py	/^    def yUp(self):$/;"	m	class:GraphWin
 yy	procsrc/amath.leg.c	/^YY_RULE(int) yy_Binary(yycontext *yy); \/* 12 *\/$/;"	v
 yy	procsrc/amath.leg.c	/^YY_RULE(int) yy_Color(yycontext *yy); \/* 22 *\/$/;"	v
 yy	procsrc/amath.leg.c	/^YY_RULE(int) yy_E(yycontext *yy); \/* 5 *\/$/;"	v
