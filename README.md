@@ -5,6 +5,12 @@ The goal of this project is to create a streamlined keyboard-based math scratchp
 
 i.e. an alternative to pen-and-paper math, for back-of-the-envelope calculation, note-taking, problem-solving, etc.
 
+# Folders
+The following folders are various attempts to realize the envisioned product:
+
+- channel :: communicate between vim and a python process via the builtin vim IPC (`:h channel`)
+- procsrc, smdv, watch :: a more naive approach to rendering a file edited by vim in a webpage. works, but is rather slow and is not WYSIWYG
+
 # Reasoning
 Many people who are 'tech-savvy' still prefer using pen-and-paper for math:
 
